@@ -10,11 +10,10 @@ const ytdl = require('ytdl-core');
 const request = require('request');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
-const simpleytapi = require('simple-youtube-api')
+const YouTube = require('simple-youtube-api');
 var Canvas = require('canvas')
 var jimp = require('jimp')
 const pretty = require('pretty-ms');
-const yt_api_key = "AIzaSyDoH9YxF0yi6ljyi2txYZHB10vXNUEP_2U"
 const prefix = "+";
 var guilds = {};
 
