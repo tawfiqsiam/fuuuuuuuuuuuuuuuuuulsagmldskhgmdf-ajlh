@@ -58,7 +58,7 @@ var i= guild.iconURL
 const embed = new Discord.RichEmbed()
   
                    .setColor("RANDOM")
-                .setFooter(` ©  Dream™ `)
+                .setFooter(` ©  Dragon™ `)
                 .setTitle(" Dragon Added To Server !")
                 .addField("**Guild Name:**", guild.name )
                  .addField("**Owner:**", guild.owner.user.username )
