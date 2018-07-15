@@ -771,9 +771,10 @@ if(message.content.startsWith(prefix + 'channel')) {
     });
 
 
-    var prefix = "+";
  
     client.on('message', message => {
+    var prefix = "+";
+
       if (message.author.bot) return;
       if (!message.content.startsWith(prefix)) return;
      
