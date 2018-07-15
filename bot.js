@@ -955,8 +955,9 @@ client.on('message', message => {
   });
 
 
-  var prefix = "+";
   client.on('message', message => {
+  var prefix = "+";
+
            if (message.content === prefix + "dt") {
            if (!message.channel.guild) return message.reply('** This command only for servers **');  
            var currentTime = new Date(),
