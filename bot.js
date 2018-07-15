@@ -851,9 +851,10 @@ client.on('message', message => {
 });
  
 
-var prefix = "+";
 const HeRo = new Discord.Client();
 client.on('message', message => {
+var prefix = "+";
+
     if (message.content === prefix + "date") {
         if (!message.channel.guild) return message.reply('** This command only for servers **');  
         var currentTime = new Date(),
