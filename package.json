@@ -26,6 +26,7 @@
     },
     "dependencies": {
       "canvas": "1.6.10",
+      "hh-mm-ss": "1.2.0",
       "figlet": "1.2.0",
       "dateformat": "3.0.3",
       "google-translate-api": "2.3.0",
