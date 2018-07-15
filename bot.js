@@ -1365,13 +1365,21 @@ client.on('message' , message => {
       if(command == "mute") {
       let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
       if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
+      if(mention.id === message.author.id) return message.reply('**لا يمكنك اعطاء ميوت  لنفسك**').then(msg => {
+        msg.delete(3500);
+        message.delete(3500);
+      });
+      if(mention.highestRole.position >= message.guild.member(message.author).highestRole.positon) return message.reply('**لا يمكنك اعطاء لميوت شخص رتبته اعلى منك**').then(msg => {
+        msg.delete(3500);
+        message.delete(3500);
+      });  
       if(tomute.hasPermission("MANAGE_MESSAGES"))return;
-      let muterole = message.guild.roles.find(`name`, "muted");
+      let muterole = message.guild.roles.find(`name`, "Muted");
       //start of create role
       if(!muterole){
         try{
           muterole = await message.guild.createRole({
-            name: "muted",
+            name: "Muted",
             color: "#000000",
             permissions:[]
           })
@@ -1419,7 +1427,7 @@ client.on('message' , message => {
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.channel.sendMessage("**عليك المنشن أولاّ**:x: ");
   
-    let role = message.guild.roles.find (r => r.name === "muted");
+    let role = message.guild.roles.find (r => r.name === "Muted");
     
     if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("**لم يتم اعطاء هذه شخص ميوت من الأساس**:x:")
   
