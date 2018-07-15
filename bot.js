@@ -153,7 +153,7 @@ client.on('message' , message => {
 ══════════ஜ۩۞۩ஜ════════════ 
       🌎「اوامر عامة」💎
 
-       **+help-public
+       **+help-public**
     
       👑「اوامر ادارية」👑
 
