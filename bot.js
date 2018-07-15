@@ -26,6 +26,47 @@ client.on('ready',  () => {
   });
  
 
+
+
+client.on("guildDelete", guild => {
+    console.log(` Dragon Left From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
+   
+var g= guild.members.size
+var i= guild.iconURL
+
+const embed = new Discord.RichEmbed()
+  
+                   .setColor("RANDOM")
+                .setFooter(` ©  Dragon™ `)
+                .setTitle(" Dreams Left Server !")
+                .addField("**Guild Name:**", guild.name )
+                 .addField("**Owner:**", guild.owner.user.username )
+                 .addField("**Owner id:**", guild.owner.user.id )
+                 .addField("**MEMBER COUNT:**", g )
+                  .setThumbnail (i)
+client.channels.get("427613133826162698").send({ embed: embed });
+});
+
+
+client.on("guildCreate", guild => {
+console.log(` Dragon Added From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
+
+var g= guild.members.size
+var i= guild.iconURL
+
+const embed = new Discord.RichEmbed()
+  
+                   .setColor("RANDOM")
+                .setFooter(` ©  Dream™ `)
+                .setTitle(" Dragon Added To Server !")
+                .addField("**Guild Name:**", guild.name )
+                 .addField("**Owner:**", guild.owner.user.username )
+                 .addField("**MEMBER COUNT:**", g )
+                  .setThumbnail (i)
+client.channels.get("427613133826162698").send({ embed: embed });
+
+});
+
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
@@ -60,7 +101,7 @@ client.on('message', message => {
                                                     .setFooter(message.author.username, message.author.avatarURL)
                                                    
                                                     
-     client.channels.get("468102376495251466").send(embed)
+     client.channels.get("468102376495251466").send({ embed: embed });
       let embe = new Discord.RichEmbed()
                                                     .setAuthor(message.author.username, message.author.avatarURL)
                                                     .setDescription('**__:mailbox_with_mail: Suggestion Sent Successfully !__**')
@@ -68,7 +109,7 @@ client.on('message', message => {
                                                                                                     .setColor("FF0000")
     
                                                     .setFooter(message.author.username, message.author.avatarURL)
-                                                    message.channel.sendEmbed(embe);
+                                                    message.channel.sendEmbed({ embed: embed });
                
                                       
     }
