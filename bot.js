@@ -1626,8 +1626,9 @@ client.on('message' , message => {
   
   
    
-  var prefix= "+";
   client.on("message", message => {
+      var prefix= "+";
+
       if(message.content.startsWith(prefix + 'ct')) {
        let args = message.content.split(" ").slice(1);
          var nam = args.join(' ');
@@ -1640,8 +1641,9 @@ client.on('message' , message => {
       }
       });
    
-  var prefix= "+";
   client.on("message", message => {
+  var prefix= "+";
+
       if(message.content.startsWith(prefix + 'cv2')) {
        let args = message.content.split(" ").slice(1);
          var nam = args.join(' ');
@@ -1654,8 +1656,9 @@ client.on('message' , message => {
       }
       });
   
-  var prefix= "+";
   client.on("message", message => {
+  var prefix= "+";
+
       if(message.content.startsWith(prefix + 'cc')) {
        let args = message.content.split(" ").slice(1);
          var nam = args.join(' ');
@@ -1668,8 +1671,9 @@ client.on('message' , message => {
       }
       });
   
-      var prefix= "+";
       client.on("message", message => {
+      var prefix= "+";
+
           if(message.content.startsWith(prefix + 'v')) {
            let args = message.content.split(" ").slice(1);
              var nam = args.join(' ');
@@ -1731,9 +1735,10 @@ client.on('message' , message => {
   
   
    
-  var prefix = '+';
   
   client.on('message', message => {
+      var prefix= "+";
+
       if(message.content === prefix + 'createcolors') {
                            if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
            if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('**You Dont Have** `ADMINISTRATOR` **premission**').then(msg => msg.delete(6000))
@@ -3202,7 +3207,6 @@ client.on('message' , message => {
 
 
             let points = JSON.parse(fs.readFileSync('./fkk/3wasmPTS.json', 'utf8'));
-            var prefix = "+";//البريفكس
             
             client.on('message', message => {
             if (!points[message.author.id]) points[message.author.id] = {
