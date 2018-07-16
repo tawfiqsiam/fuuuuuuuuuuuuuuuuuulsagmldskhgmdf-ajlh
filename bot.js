@@ -27,7 +27,39 @@ client.on('ready',  () => {
   });
  
 
-
+function timeCon(time) {
+    let days = Math.floor(time % 31536000 / 86400)
+    let hours = Math.floor(time % 31536000 % 86400 / 3600)
+    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+    days = days > 9 ? days : '0' + days
+    hours = hours > 9 ? hours : '0' + hours
+    minutes = minutes > 9 ? minutes : '0' + minutes
+    seconds = seconds > 9 ? seconds : '0' + seconds
+    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+}
+client.on('message', message => {
+    if (message.content.startsWith("+bot")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .setTitle('``INFO Dragon`` ')
+            .addField('``Uptime``', [timeCon(process.uptime())], true)
+            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
+            .addField('``servers``', [client.guilds.size], true)
+            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
+            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
+            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
+            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
+                  .addField('``My Prefix``' , `+` , true)
+                  .addField('``My Language``' , `[ Java Script ]` , true)
+                  .setFooter('By | ! HP , ء Moha,$ 55₅ , .#5555')
+    })
+}
+});
 
 client.on("guildDelete", guild => {
     console.log(` Dragon Left From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
@@ -1136,9 +1168,11 @@ message.react("😵")
 ╱╱╱╱╱╱╱╱╱╰━━╯
                              
 
- ══════════ஜ۩۞۩ஜ════════════
-🌎「اوامر عامة」💎
+       ══════════ஜ۩۞۩ஜ════════════
+            🌎「اوامر عامة」💎
                        
+🌎+bot 「يعرض لك معلومات عن البوت」
+
 🌎+server 「يعرض لك معلومات السيرفر」
  
 🌎+user 「أمر الايدي」
@@ -1360,6 +1394,7 @@ client.on('message' , message => {
   if(!message.member.hasPermission('MANAGE_ROLES'));
   if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return;
   var command = message.content.split(" ")[0];
+    let mention = message.mentions.members.first();
   command = command.slice(prefix.length);
   var args = message.content.split(" ").slice(1);
       if(command == "mute") {
@@ -2515,9 +2550,8 @@ client.on('message' , message => {
 ╱╱╱╱╱╱╱╱╱╭━╯┃
 ╱╱╱╱╱╱╱╱╱╰━━╯
      
-        ══════════ஜ۩۞۩ஜ════════════  
-       
-          👑「اوامر ادارية」👑
+        ══════════ஜ۩۞۩ஜ════════════ 
+            👑「اوامر ادارية」👑
            
 👑+bc 「للبرودكاست بأميد」
  
@@ -3146,7 +3180,7 @@ function play(guild, song) {
     ╱╱╱╱╱╱╱╱╱╰━━╯
                             
     ══════════ஜ۩۞۩ஜ════════════  
-    🎵 اوامر الاغاني 🎵            
+        🎵 اوامر الاغاني 🎵            
 
 🎵+play 
 「لتشغيل اغنية عبر الأسم او رابط」
