@@ -2710,12 +2710,13 @@ client.on('message', async message =>{
   client.on('typingStart', (ch, user) => {
     if(user.presence.status === 'offline') {
         
-        ch.send(`${user} هاهاهاا , كشفتك وانت تكتب ي اوف لاين`)
+        ch.send(`${user} كشفتك وانت تكتب ومسوي نفسك اوف لاين ها محسبني هطف؟`)
         .then(msg => {
-            msg.delete(10000)
+            msg.delete(3000)
         })
     }
 })
+
   
   client.on('message' , msg => {
     var prefix = "+";
