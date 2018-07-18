@@ -1151,33 +1151,39 @@ client.on('message', message => {
       
       });
 
+client.on('message', message => {
+  var prefix = "+"
 
-  client.on('message',async message => {
-    var prefix = "+";
+if(message.startsWith(prefix + 'inforole')){
+  if(message.channel.permissionsFor(message.client.user).has('EMBED_LINKS') == false) return message.reply('sorry but I cannot send Embed Links for this channel... check my permissions and try again!');
+  var kakrole = args.slice(1).join(' ');
+  if(!kakrole) return message.reply('please, specify a role to get info...');
 
-    let args = message.content.split(" ").slice(1).join(" ");
-    let role = message.guild.roles.find('name',args) || message.guild.roles.get(args);
-  
-  
-    if(message.content.startsWith(prefix + "inforole")) {
-      if(!args) return message.reply('اكتب اسم الرتبة');
-      if(!role) return message.reply('هذه الرتبة غير موجودة');
-      let iQp = new Discord.RichEmbed()
-      .setAuthor(message.author.tag,message.author.avatarURL)
-      .setTitle(message.guild.name)
-      .setThumbnail(message.guild.iconURL)
-      .addField('- اسم الرتبة',role.name,true)
-      .addField('- اي دي الرتبة',role.id,true)
-      .addField('- تم انشاء الرتبة',role.createdAt.toLocaleString(),true)
-      .addField('- لون الرتبة',role.hexColor,true)
-      .addField('- عدد الاعضاء الذي لديهم نفس الرتبة',role.members.size,true)
-      .addField('- مركز الرتبة بين كل الرتب',role.position,true)
-      .addField('- خصائص الرتبة',role.permissions,true)
-      .setFooter(message.author.tag,message.author.avatarURL);
-  
-      message.channel.send(iQp);
-    }
-  });
+  var role = message.guild.roles.find("name", kakrole);
+  if(!role) return message.reply("i didn't find no role with that name! Try again later :thumbsdown:");
+
+  var roleCreated = role.createdAt.toString().split(' ');
+  const embed = new Discord.RichEmbed()
+  .setTitle("Dragon")
+  .setAuthor( '', '' )
+  .setColor(0xFF8DFD)
+  .setDescription(``)
+  .setFooter('', '')
+  .setImage()
+  .setThumbnail('https://png.icons8.com/metro/540/edit-user-male.png')
+  .setTimestamp()
+  .setURL('')
+  .addField(`Role name`, `${role.name}`, true)
+  .addField(`Role Id`, `${role.id}`, true)
+  .addField(`Role Position`, `${role.position}`, true)
+  .addField(`Members`, `${role.members.size} with this role`, true)
+  .addField(`Mentionable`, `${role.mentionable}`, true)
+  .addField(`Role Color`, `${role.hexColor}`, true)
+  .addField(`Created At`, `${roleCreated[1]} ${roleCreated[2]} ${roleCreated[3]}`)
+
+  message.channel.send({embed});
+}
+});
 
 client.on("message", message => {
 if (message.content === "+help-public") {
