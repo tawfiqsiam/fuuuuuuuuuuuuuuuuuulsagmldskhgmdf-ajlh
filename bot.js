@@ -1155,6 +1155,7 @@ client.on('message', message => {
   var prefix = "+"
 
     if(message.content.startsWith(prefix + "inforole")) {
+     var args = message.content.split(" ").slice(1);
   if(message.channel.permissionsFor(message.client.user).has('EMBED_LINKS') == false) return message.reply('sorry but I cannot send Embed Links for this channel... check my permissions and try again!');
   var kakrole = args.slice(1).join(' ');
   if(!kakrole) return message.reply('please, specify a role to get info...');
@@ -2756,7 +2757,7 @@ client.on('message', async message =>{
                       .setColor("#000000")
                         .setDescription(`
 تم إرسآل لك رسآلة من السيرفر الخاص بك 
-${msg.guild.name}
+${msg.guild.name} 
 الرسآلة 
 ${args}
         `)
