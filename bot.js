@@ -1154,7 +1154,7 @@ client.on('message', message => {
 client.on('message', message => {
   var prefix = "+"
 
-if(message.startsWith(prefix + 'inforole')){
+    if(message.content.startsWith(prefix + "inforole")) {
   if(message.channel.permissionsFor(message.client.user).has('EMBED_LINKS') == false) return message.reply('sorry but I cannot send Embed Links for this channel... check my permissions and try again!');
   var kakrole = args.slice(1).join(' ');
   if(!kakrole) return message.reply('please, specify a role to get info...');
