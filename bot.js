@@ -1150,6 +1150,35 @@ client.on('message', message => {
         }
       
       });
+
+
+  client.on('message',async message => {
+    var prefix = "+";
+
+    let args = message.content.split(" ").slice(1).join(" ");
+    let role = message.guild.roles.find('name',args) || message.guild.roles.get(args);
+  
+  
+    if(message.content.startsWith(prefix + "inforole")) {
+      if(!args) return message.reply('اكتب اسم الرتبة');
+      if(!role) return message.reply('هذه الرتبة غير موجودة');
+      let iQp = new Discord.RichEmbed()
+      .setAuthor(message.author.tag,message.author.avatarURL)
+      .setTitle(message.guild.name)
+      .setThumbnail(message.guild.iconURL)
+      .addField('- اسم الرتبة',role.name,true)
+      .addField('- اي دي الرتبة',role.id,true)
+      .addField('- تم انشاء الرتبة',role.createdAt.toLocaleString(),true)
+      .addField('- لون الرتبة',role.hexColor,true)
+      .addField('- عدد الاعضاء الذي لديهم نفس الرتبة',role.members.size,true)
+      .addField('- مركز الرتبة بين كل الرتب',role.position,true)
+      .addField('- خصائص الرتبة',role.permissions,true)
+      .setFooter(message.author.tag,message.author.avatarURL);
+  
+      message.channel.send(iQp);
+    }
+  });
+
 client.on("message", message => {
 if (message.content === "+help-public") {
 message.react("✅")
@@ -1204,6 +1233,8 @@ message.react("😵")
 🌎+roles 「لعرض اسماءالرتب」
 
 🌎+channel 「يعرض لك معلومات عن الروم」
+
+🌎+inforole 「يعرض لك معلومات عن رتبة」
 
 🌎+embed 「خاصيه غرد لكن بغير طريقه」
 
@@ -1759,19 +1790,66 @@ client.on('message', async message =>{
       }
       });
   
-      client.on("message", message => {
-      var prefix= "+";
 
-          if(message.content.startsWith(prefix + 'v')) {
-           let args = message.content.split(" ").slice(1);
-             var nam = args.join(' ');
-           
-            if(!message.member.hasPermission('ADMINISTRATOR')) return;
-            if (!nam) return message.channel.send(`<@${message.author.id}> يجب عليك ادخال اسم`).then(msg => msg.delete(10000))
-            message.guild.createChannel(nam, 'voice').then(c => setTimeout(() => c.delete(), 120000)) // كل 60 تساوي دقيقة عدل عليها الوقت لي تبيه 
-            message.channel.send(`:ballot_box_with_check: تم عمل الروم الصوتي : \`${nam}\``).then(c => setTimeout(() => c.edit(`<@${message.author.id}> :stopwatch:  انتهى وقت الروم الصوتي`), 120000))  // 120000 دقيقتان
-          }
-          });
+
+  client.on('message', async message => {
+    if(message.content.startsWith(prefix + "tv")) {
+      if(!message.member.hasPermission('MANAGE_CHANNELS')) return;
+      await message.channel.send("ارسل اسم الروم").then(e => {
+      let filter = m => m.author.id === message.author.id
+      let name = '';
+      let time = '';
+      let type = '';
+      let limit = '';
+  
+     
+      message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
+      .then(collected => {
+        name = collected.first().content
+        collected.first().delete()
+  
+  
+  
+  e.edit("ارسل مدة الروم بالدقائق لااقل من 2 ولا اعلى من 180")
+  message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
+  .then(co => {
+  if(isNaN(co.first().content)) return message.reply("الوقت بالدقائق ! ارقام فقطٍ");
+  if(co.first().content > 180 || co.first().content < 2) return message.channel.send("لا اقل من دقيقتان ولا اكثر من 180 دقيقه")
+    time = co.first().content
+  co.first().delete()
+    e.edit("ارسل نوع الروم text, voice")
+  message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
+  .then(col => {
+    type = col.first().content
+  col.first().delete()
+  e.edit("ارسل عدد الاعضاء الذين يستطيعون الدخول")
+  message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] })
+  .then(coll => {
+    if(isNaN(coll.first().content)) return message.reply("عدد الاعضاء يكون بالارقام فقط");
+      limit = coll.first().content
+  coll.first().delete()
+  
+    e.edit("جاري اعداد الغرفه الرجاء الانتضار...")
+    message.guild.createChannel(name, type).then(c => {
+      c.edit({
+        userLimit: limit
+      })
+      setTimeout(() => {
+        c.delete()
+        message.channel.send("تم انقضاء الوقت")
+      }, Math.floor(time*60000))
+      
+    })
+    e.edit("تم انشاء الغرفه استمتع")
+  
+  })
+  })
+  })
+  })
+  })
+  
+    }
+  })
   
   client.on('message', message => {
     var prefix = "+";
@@ -2556,6 +2634,8 @@ client.on('message', async message =>{
  
 👑+rolebc 「لأرسال برودكاست لرتبة معينه」
 
+👑+ownerbc 「لأرسال برودكاست لأونر السيرفر」
+
 👑+rename 「لتغير أسم شخص ما」
         
 👑+muteall 「لقفل الشات」
@@ -2575,7 +2655,9 @@ client.on('message', async message =>{
 👑+unmute 「 لفك الميوت」
         
 👑+createcolors 「لعمل 137 لون مرتب」
-           
+
+👑+deletecolors 「لمسح جميع الألوان بالسيرفر」
+
 👑+ban 「لتعطي شخص باند مع السبب」
        
 👑+unban 「لفك الباند عند شخص محدد」
@@ -2584,7 +2666,7 @@ client.on('message', async message =>{
            
 👑+clear 「لمسح الشات」
            
-👑+v  「لانشاء روم صوتي مؤقت」
+👑+tc  「لانشاء روم صوتي وكتابي مؤقت」
         
 👑+cc  「لانشاء كاتجوري 」
         
@@ -2625,7 +2707,26 @@ client.on('message', async message =>{
           }); 
 
 
-
+  client.on('typingStart', (ch, user) => {
+    if(user.presence.status === 'offline') {
+        
+        ch.send(`${user} هاهاهاا , كشفتك وانت تكتب ي اوف لاين`)
+        .then(msg => {
+            msg.delete(10000)
+        })
+    }
+})
+  
+  client.on('message' , msg => {
+    var prefix = "+";
+    if(msg.author.bot) return;
+    if(msg.channel.type == 'dm') return;
+    if(msg.content.startsWith(prefix + "deletecolors")) {
+      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+    msg.guild.roles.filter(msg => isNaN(msg)).forEach(dragon => dragon.delete())
+    }
+    });
+      
 
           
 //╭━━╮╱╱╱╱╱╱╱╭╮╱╱╱╱╱╱╱╱╱╱╱╭╮
@@ -2635,7 +2736,29 @@ client.on('message', async message =>{
 //┃╰━╯┃┃┃╰╯┃╰╯┃╭╮┃╰━┫╭╮┣━━┃╰╮
 //╰━━━┻╯╰━━┻━━┻╯╰┻━━┻╯╰┻━━┻━╯
     
-    
+    client.on('message', msg => {
+  var prefix = "+";
+    if(msg.author.bot) return;
+      if(msg.content.startsWith(prefix + "ownerbc")) {
+        let args = msg.content.split(" ").slice(1);
+           if(!args[0]) {
+              msg.channel.send("** -bcowner <message> **")
+                return;
+                  }      
+                   var embed = new Discord.RichEmbed()
+                      .setColor("#000000")
+                        .setDescription(`
+تم إرسآل لك رسآلة من السيرفر الخاص بك 
+${msg.guild.name}
+الرسآلة 
+${args}
+        `)
+        .setFooter(` بوآسطة ${msg.author.username}#${msg.author.discriminator}`)
+       msg.guild.owner.send(embed);
+      msg.channel.send("**تم إرسآل الرسآلة إلى أونر السيرفر**")
+     }
+    }
+  );
     
      client.on('message', message => {
                   if(!message.channel.guild) return;
@@ -2731,44 +2854,48 @@ client.on('message', async message =>{
             }
         });
     
-    client.on('message', message => {
-        if (message.content.split(' ')[0] == '+allbc')
-           message.guild.members.forEach( member => {
-             if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-     
-     
-               member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
-                                                          message.delete();
-                 
-                                                        });
-                 
-                                                      });
-       client.on("message", message => {
-           var prefix = "*^%";
-      
-                 var args = message.content.substring(prefix.length).split(" ");
-                    if (message.content.startsWith(prefix + "ظظظظظ")) {
-                              if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-     
-                              if (!args[1]) {
-                                 
-                                     let embed3 = new Discord.RichEmbed()
-                                         .setDescription(":white_check_mark: | تم ارسال رسالة لا يوجد فيها شيء")
-                                           .setColor("#FF00FF")
-                                              message.channel.sendEmbed(embed3);
-                                 
-                                            } else {
-     
-                                 
-                                               let embed4 = new Discord.RichEmbed()
-                                                                .setDescription(':white_check_mark: | تم ارسال الرساله للجميع ..')
-                                                                    .setColor("#99999")
-                                    
-                                                                    message.channel.sendEmbed(embed4);
-                                                          message.delete();
-                                }
-                              }
-    });
+     client.on('message',async message => {
+    var prefix = "+";
+    if(message.content.startsWith(prefix + "allbc")) {
+      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+      let filter = m => m.author.id === message.author.id;
+      let thisMessage;
+      let thisFalse;
+      message.channel.send(':regional_indicator_b::regional_indicator_c:| **ارسل الرسالة الان**').then(msg => {
+  
+      let awaitM = message.channel.awaitMessages(filter, {
+        max: 1,
+        time: 20000,
+        errors: ['time']
+      })
+      .then(collected => {
+        collected.first().delete();
+        thisMessage = collected.first().content;
+        msg.edit(':regional_indicator_b::regional_indicator_c:| **هل انت متأكد؟**');
+        let awaitY = message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
+          max: 1,
+          time: 20000,
+          errors: ['time']
+        })
+        .then(collected => {
+          if(collected.first().content === 'لا') {
+            msg.delete();
+            message.delete();
+            thisFalse = false;
+          }
+          if(collected.first().content === 'نعم') {
+            if(thisFalse === false) return;
+          message.guild.members.forEach(member => {
+            msg.edit(':regional_indicator_b::regional_indicator_c:| **جاري الارسال**');
+            collected.first().delete();
+            member.send(`${thisMessage}\n\n${member} ,\nتم الارسال من : ${message.guild.name}\n تم الارسال بواسطة : ${message.author.tag}`);
+          });
+          }
+        });
+      });
+      });
+    }
+  });
     
                     client.on("message", message => {
                          var prefix = "+";
