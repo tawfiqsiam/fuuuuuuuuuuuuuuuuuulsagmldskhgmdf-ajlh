@@ -2714,15 +2714,6 @@ client.on('message', async message =>{
           }); 
 
 
-  client.on('typingStart', (ch, user) => {
-    if(user.presence.status === 'offline') {
-        
-        ch.send(`${user} كشفتك وانت تكتب ومسوي نفسك اوف لاين ها محسبني هطف؟`)
-        .then(msg => {
-            msg.delete(3000)
-        })
-    }
-})
 
   
   client.on('message' , msg => {
