@@ -60,7 +60,7 @@ const embed = new Discord.RichEmbed()
   
                    .setColor("RANDOM")
                 .setFooter(` ©  Dragon™ `)
-                .setTitle(" Dreams Left Server !")
+                .setTitle(" Dragon Left Server !")
                 .addField("**Guild Name:**", guild.name )
                  .addField("**Owner:**", guild.owner.user.username )
                  .addField("**Owner id:**", guild.owner.user.id )
