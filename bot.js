@@ -37,7 +37,7 @@ client.on('message', message => {
     let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
     var embed  = new Discord.RichEmbed()
     .setAuthor("[ Dragon Bot ]", " https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
-    .addField("**[ Dragon ] :**","**[ + ]**" , true)
+    .addField("**[ Dragon Prefix] :**","**[ + ]**" , true)
     .addField("** [ Dragon ID ] **", "**"+"459725014237970492"+"**",true)
     .addField("** [ Dragon ] **","** دراجون**")
     .addField("**[ Bot Developer ]**","<@!402043862480322562> [! HP , ء Móha,$ 55₅ , .#5555]")
