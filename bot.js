@@ -250,7 +250,6 @@ const days = millis / 1000 / 60 / 60 / 24;
              } else {
                  h = message.member
              }
-            moment.locale('ar-TN');
        let Image = Canvas.Image,
            canvas = new Canvas(300, 300),
            ctx = canvas.getContext('2d');
