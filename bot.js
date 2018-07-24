@@ -932,11 +932,15 @@ var prefix = "+";
 });
 
 
-client.on('message', message => {
+  client.on('message', message => {
     var prefix = "+";
     var args = message.content.substring(prefix.length).split(" ");
     if (message.content.startsWith(prefix + "user")) {
-    var embed = new Discord.RichEmbed()
+      message.guild.fetchInvites().then(invs => {
+        let member = client.guilds.get(message.guild.id).members.get(message.author.id);
+        let personalInvites = invs.filter(i => i.inviter.id === message.author.id);
+        let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+            var embed = new Discord.RichEmbed()
     .setColor(0x00A2E8)
     .setThumbnail(message.author.avatarURL)
     .addField("اسمك في السيرفر ", `${message.author.tag} (ID: ${message.author.id})`, true)
@@ -947,11 +951,11 @@ client.on('message', message => {
     .addField("أعلى رتبه تمتلكها: ", message.member.highestRole.name)
     .addField("دخولك للدسكورد :", `${message.member.joinedAt.toDateString()}`)
     .addField("دخولك للسيرفر : ", `${message.author.createdAt.toDateString()}`)
+    .addField(': عدد الدعوات',                         inviteCount,false)
     .setTimestamp()
     .setFooter(message.author.username, message.author.avatarURL);
   if (message.mentions.users.size < 1) return message.channel.send({ embed: embed });
     
-  let member = message.mentions.members.first();
   var embed = new Discord.RichEmbed()
     .setColor(0x00A2E8)
     .setThumbnail(member.user.avatarURL)
@@ -966,9 +970,10 @@ client.on('message', message => {
     .setTimestamp()
     .setFooter(member.user.username, member.user.avatarURL);
     message.channel.send({ embed: embed });
-            }
+      })
+    }
+          
   });
-
 
   client.on("message", message => {
     var prefix = "+";
@@ -1636,7 +1641,7 @@ client.on('message', async message =>{
       var msg = message.content.toLowerCase();
       if( !message.guild ) return;
       if( !msg.startsWith( prefix + 'role' ) ) return;
-      if( msg.toLowerCase().startsWith( prefix + 'removerole' ) ){
+      if( msg.toLowerCase().startsWith( prefix + 'fljhlflsh' ) ){
    if (!message.member.hasPermission("ADMINISTRATOR"))  return message.reply("**للأسف ليس لديك صلاحية `ADMINISTRATOR`**").then(msg => msg.delete(5000));
   if(!message.guild.member(client.user).hasPermission("ADMINISTRATOR")) return message.reply("**I Don't Have `ADMINISTRATOR` Permission**").then(msg => msg.delete(6000));
           if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
@@ -1678,6 +1683,54 @@ client.on('message', async message =>{
           } 
       } 
   });
+
+client.on('message', message => {
+  var prefix = '+';
+
+  if (message.content.startsWith(prefix + "removerole")) {
+    let clientbot = message.guild.me;
+if (clientbot.hasPermission("MANAGE_ROLES")) {
+  if (!message.member.hasPermission("MANAGE_ROLES")) {
+    message.react("❌")
+  } else {
+    let args = message.content.split(' ').slice(1).join(' ');
+  let args2 = message.content.split(' ').slice(2).join(' ');
+  if (message.mentions.users.size === 0) {
+    message.channel.send("**You used this command wronge! Usage: " +prefix+"removerole [USER] [ROLE]**")
+  } else {
+    var mentioned = message.mentions.members.first().id;
+    var mgm = message.guild.members.get(mentioned)
+    var role = message.guild.roles.find("name", args2)
+    let hasrole = mgm.roles.has("name", args)
+    if (args2) {
+      if (role) {
+        if (mgm.roles.has(role.id)) {
+        mgm.removeRole(role)
+        const roleremoved = new Discord.RichEmbed()
+          .addField(`Role Removed!!`, `The role **${args2}** has been removed from <@${mgm.id}>`)
+          .setColor("#fff")
+          message.channel.send(roleremoved)
+        } else {
+          message.channel.send("**"+mgm.user.tag+"** doesn't have the role **" + role.name + "**!")
+        }
+      } else {
+        message.channel.send("The role named ``"+args2+"`` doesn't exist!")
+      }
+
+    } else {
+      message.channel.send("**You used this command wronge! Usage: " +prefix+"removerole [USER] [ROLE]**")
+    }
+  }
+}
+} else {
+const botnoperm = new Discord.RichEmbed()
+        .setColor(redcolor)
+        .addField("❌ Permission Error ❌", `I don't have perms to add roles to users!\nNeeded Permission: **MANAGE_ROLES**`)
+
+        message.channel.send(botnoperm)
+}
+}
+});
   
       client.on('message', message => {
         var prefix = "+";
@@ -2697,7 +2750,7 @@ client.on('message', message => {
         
 👑+role  「لأعطاء رتبة」
         
-👑+roleremove  「 أزالة رتبة」
+👑+removerole  「 أزالة رتبة」
         
 👑+role all  「لأعطاء جميع الي في سيرفر رتبة」
         
