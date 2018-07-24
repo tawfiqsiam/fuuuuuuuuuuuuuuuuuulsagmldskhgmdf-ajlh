@@ -433,157 +433,166 @@ client.on('message',message =>{
     }
   });
 
-   
 client.on('message', message => {
-    id = client.user.id;
-    guild = message.guild;
-    emojiHasPermission = permission => {
-      console.log(permission);
-      if (guild.member(id).permissions.has(permission, false)) {
-        return ':white_check_mark:';
-      } else {
-        return ':x:';
-      }
-    };
-    if (message.content === '+per') {
-    message.channel.send({embed: {
-      title: ':tools: Permissions',
-      color: 0x06DF00,
-      fields: [
-        {
-   
-          name: 'Administrator :',
-          value: emojiHasPermission('ADMINISTRATOR'),
-          inline: true
-        },
-        {
-          name: 'Create Instant Invite :',
-          value: emojiHasPermission('CREATE_INSTANT_INVITE'),
-          inline: true
-        },
-        {
-          name: 'Kick Members :',
-          value: emojiHasPermission('KICK_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Ban Members :',
-          value: emojiHasPermission('BAN_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Manage Channels :',
-          value: emojiHasPermission('MANAGE_CHANNELS'),
-          inline: true
-        },
-        {
-          name: 'Manage Guild :',
-          value: emojiHasPermission('MANAGE_GUILD'),
-          inline: true
-        },
-        {
-          name: 'Add Reactions :',
-          value: emojiHasPermission('ADD_REACTIONS'),
-          inline: true
-        },
-        {
-          name: 'View Audit Log :',
-          value: emojiHasPermission('VIEW_AUDIT_LOG'),
-          inline: true
-        },
-        {
-   
-          name: 'Manage Messages :',
-          value: emojiHasPermission('MANAGE_MESSAGES'),
-          inline: true
-        },
-        {
-          name: 'Embed Links :',
-          value: emojiHasPermission('EMBED_LINKS'),
-          inline: true
-        },
-        {
-          name: 'Attach Files :',
-          value: emojiHasPermission('ATTACH_FILES'),
-          inline: true
-        },
-        {
-          name: 'Read Message History :',
-          value: emojiHasPermission('READ_MESSAGE_HISTORY'),
-          inline: true
-        },
-        {
-          name: 'Mention Everyone :',
-          value: emojiHasPermission('MENTION_EVERYONE'),
-          inline: true
-        },
-        {
-          name: 'Use External Emojis :',
-          value: emojiHasPermission('USE_EXTERNAL_EMOJIS'),
-          inline: true
-        },
-        {
-          name: 'Connect :',
-          value: emojiHasPermission('CONNECT'),
-          inline: true
-        },
-        {
-          name: 'Speak :',
-          value: emojiHasPermission('SPEAK'),
-          inline: true
-        },
-        {
-   
-          name: 'Mute Members :',
-          value: emojiHasPermission('MUTE_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Deafen Members :',
-          value: emojiHasPermission('DEAFEN_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Move Members :',
-          value: emojiHasPermission('MOVE_MEMBERS'),
-          inline: true
-        },
-        {
-          name: 'Use VAD :',
-          value: emojiHasPermission('USE_VAD'),
-          inline: true
-        },
-        {
-          name: 'Change Nickname :',
-          value: emojiHasPermission('CHANGE_NICKNAME'),
-          inline: true
-        },
-        {
-          name: 'Manage Nicknames :',
-          value: emojiHasPermission('MANAGE_NICKNAMES'),
-          inline: true
-        },
-        {
-          name: 'Manage Roles :',
-          value: emojiHasPermission('MANAGE_ROLES'),
-          inline: true
-        },
-        {
-          name: 'Manage Webhooks :',
-          value: emojiHasPermission('MANAGE_WEBHOOKS'),
-          inline: true
-        },
-        {
-          name: 'Manage Emojis :',
-          value: emojiHasPermission('MANAGE_EMOJIS'),
-          inline: true
-        }
-      ]
-    }
-    });
-    }
-  });
-
+  var prefix = '+';
+  if(message.content.startsWith(prefix + 'roleperms')) {
+            var msg = message.content.toLowerCase();
+              var role2 = msg.split(' ').slice(1).join(" ").toLowerCase(); 
+          var role1 = message.guild.roles.filter(r=>r.name.toLowerCase().indexOf(role2)>-1 ).first(); 
+               if(role1.hasPermissions('ADMINISTRATOR')) {
+                   var permadmin = ":white_check_mark:"
+               } else {
+                   var permadmin=":x:"
+               }
+                                if(role1.hasPermissions('VIEW_AUDIT_LOG')) {
+                   var permlog = ":white_check_mark:"
+               } else {
+                   var permlog=":x:"
+               }
+                                if(role1.hasPermissions('MANAGE_GUILD')) {
+                   var permserver = ":white_check_mark:"
+               } else {
+                   var permserver=":x:"
+               }
+                                if(role1.hasPermissions('MANAGE_ROLES')) {
+                   var permroles = ":white_check_mark:"
+               } else {
+                   var permroles=":x:"
+               }
+                                if(role1.hasPermissions('MANAGE_CHANNELS')) {
+                   var permchannel = ":white_check_mark:"
+               } else {
+                   var permchannel=":x:"
+               }
+                                if(role1.hasPermissions('KICK_MEMBERS')) {
+                   var permkick = ":white_check_mark:"
+               } else {
+                   var permkick=":x:"
+               }
+                                if(role1.hasPermissions('BAN_MEMBERS')) {
+                   var permban = ":white_check_mark:"
+               } else {
+                   var permban=":x:"
+               }
+                                if(role1.hasPermissions('CREATE_INSTANT_INVITE')) {
+                   var perminvites = ":white_check_mark:"
+               } else {
+                   var perminvites=":x:"
+               }
+                                if(role1.hasPermissions('CHANGE_NICKNAME')) {
+                   var permnick = ":white_check_mark:"
+               } else {
+                   var permnick=":x:"
+               }
+                                if(role1.hasPermissions('MANAGE_NICKNAMES')) {
+                   var permmanagenick = ":white_check_mark:"
+               } else {
+                   var permmanagenick=":x:"
+               }
+                                                 if(role1.hasPermissions('MANAGE_EMOJIS')) {
+                   var permemojis = ":white_check_mark:"
+               } else {
+                   var permemojis=":x:"
+               }
+                                                 if(role1.hasPermissions('MANAGE_WEBHOOKS')) {
+                   var permhook = ":white_check_mark:"
+               } else {
+                   var permhook=":x:"
+               }
+                                                 if(role1.hasPermissions('SEND_MESSAGES')) {
+                   var permmessage = ":white_check_mark:"
+               } else {
+                   var permmessage=":x:"
+               }
+                                                 if(role1.hasPermissions('SEND_TTS_MESSAGES')) {
+                   var permtts = ":white_check_mark:"
+               } else {
+                   var permtts=":x:"
+               }
+                                                 if(role1.hasPermissions('MANAGE_MESSAGES')) {
+                   var permmanagemessages = ":white_check_mark:"
+               } else {
+                   var permmanagemessages=":x:"
+               }
+                                                 if(role1.hasPermissions('EMBED_LINKS')) {
+                   var permembed = ":white_check_mark:"
+               } else {
+                   var permembed=":x:"
+               }
+                                                 if(role1.hasPermissions('ATTACH_FILES')) {
+                   var permattach = ":white_check_mark:"
+               } else {
+                   var permattach=":x:"
+               }
+                                                 if(role1.hasPermissions('MENTION_EVERYONE')) {
+                   var permmention = ":white_check_mark:"
+               } else {
+                   var permmention=":x:"
+               }
+                                                                  if(role1.hasPermissions('USE_EXTERNAL_EMOJIS')) {
+                   var permuseemojis = ":white_check_mark:"
+               } else {
+                   var permuseemojis=":x:"
+               }
+                                                                  if(role1.hasPermissions('ADD_REACTIONS')) {
+                   var permreact = ":white_check_mark:"
+               } else {
+                   var permreact=":x:"
+               }
+                                                                  if(role1.hasPermissions('CONNECT')) {
+                   var permconnect = ":white_check_mark:"
+               } else {
+                   var permconnect=":x:"
+               }
+                                                                  if(role1.hasPermissions('SPEAK')) {
+                   var permspeak = ":white_check_mark:"
+               } else {
+                   var permspeak=":x:"
+               }
+                                                                                if(role1.hasPermissions('MUTE_MEMBERS')) {
+                   var permmute = ":white_check_mark:"
+               } else {
+                   var permmute=":x:"
+               }
+                                                                                if(role1.hasPermissions('DEAFEN_MEMBERS')) {
+                   var permdeafen = ":white_check_mark:"
+               } else {
+                   var permdeafen=":x:"
+               }
+                                                                                if(role1.hasPermissions('MOVE_MEMBERS')) {
+                   var permmove = ":white_check_mark:"
+               } else {
+                   var permmove=":x:"
+               }
+                               let nat = new Discord.RichEmbed()
+               .addField('ADMINISTRATOR',permadmin, true)
+               .addField('VIEW_AUDIT_LOG',permlog, true)
+               .addField('MANAGE_SERVER',permserver, true)
+               .addField('MANAGE_ROLES',permroles, true)
+               .addField('MANAGE_CHANNELS',permchannel, true)
+               .addField('KICK_MEMBERS',permkick, true)
+               .addField('BAN_MEMBERS',permban, true)
+               .addField('CREATE_INSTANT_INVITE',perminvites, true)
+               .addField('CHANGE_NICKNAME',permnick, true)
+               .addField('MANAGE_NICKNAMES',permmanagenick, true)
+               .addField('MANAGE_EMOJIS',permemojis, true)
+               .addField('MANAGE_WEBHOOKS',permhook, true)
+               .addField('SEND_MESSAGES',permmessage, true)
+               .addField('SEND_TTS_MESSAGES',permtts, true)
+               .addField('MANAGE_MESSAGES',permmanagemessages, true)
+               .addField('EMBED_LINKS',permembed, true)
+               .addField('ATTACH_FILES',permattach, true)
+               .addField('MENTION_EVERYONE',permmention, true)
+               .addField('USE_EXTERNAL_EMOJIS',permuseemojis, true)
+               .addField('ADD_REACTIONS',permreact, true)
+               .addField('CONNECT',permconnect, true)
+               .addField('SPEAK',permspeak, true)
+               .addField('MUTE_MEMBERS',permmute, true)
+               .addField('DEAFEN_MEMBERS',permdeafen, true)
+               .addField('MOVE_MEMBERS',permmove, true)
+               message.channel.send(nat)
+  }
+});
 
 
    
@@ -1197,7 +1206,7 @@ message.react("😵")
 
 🌎+id 「أمر الايدي بشكل مميز」
 
-🌎+per 「لمعرفة خصائص رتبتك」
+🌎+roleperms 「لمعرفة خصائص رتبتك او خصائص رتبة معينه عن طريق اسم الرتبة」
 
 🌎+mb 「لمعرفة حالة الاعضاء」 
 
@@ -1490,26 +1499,115 @@ client.on('message', async message =>{
   
   });
   
-  client.on('message', message => {
-    var prefix = "+";
-  
-    if(message.content.startsWith(prefix + 'rename')) {
-  if(message.member.hasPermission("ADMINISTRATOR")) {
-          let args = message.content.split(' ').slice(2);
-  var mentionned = message.mentions.users.first();
-    
-   if(!args){
-     return message.channel.send(":x: " + `**| Please enter a new Nick for ${mentionned}**`);
-   }
-   if (!mentionned)return message.channel.send("**You Have to Mention A member :x:**")
-   message.guild.member(mentionned).setNickname(args.join(" ")).then(user => message.channel.send(`:full_moon_with_face: ${mentionned}'s' **New NickName is **` + `__${args.join(" ")}__` + "!")).catch(console.error);
-  } else {
-   return message.reply(":x: " + "| You need to have the \"ADMINISTRATOR\" Permission");
-   }
-  
-  
-     }
-  });
+client.on('message', message => {
+    var prefix = '$';
+if (message.content.startsWith(prefix + "nickname" && prefix + "nick")) {
+  let args = message.content.split(' ').slice(1).join(' ');
+  let args2 = message.content.split(' ').slice(2).join(' ');
+if (message.member.hasPermission("CHANGE_NICKNAME")) {
+  let mention = message.mentions.members.first();
+  let clientbot = message.guild.me
+  if (clientbot.hasPermission("MANAGE_NICKNAMES")) {
+    if (message.mentions.users.size === 0) {
+      if (args.length === 0) {
+        if (message.member.nickname != null) {
+          message.member.setNickname(args2)
+          const removenickname = new Discord.RichEmbed()
+            .setColor("#fff")
+            .setTitle("Succes!")
+            .setDescription(`Nickname Removed!\nDefault Username: **${message.author.username}**`)
+
+        message.channel.send(removenickname)
+      } else {
+        const nosucremovenick = new Discord.RichEmbed()
+        .setTitle("No Succes!")
+        .setColor("#fff")
+        .setDescription("Can't remove your username because you don't have one!")
+
+        message.channel.send(nosucremovenick)
+      }
+    } else {
+      if (args.length < 32) {
+        if (message.author.id === message.guild.owner.id) {
+          const nickisowner = new Discord.RichEmbed()
+          .setColor("#fff")
+          .addField("❌ Permission Error ❌", `Because you are the owner of the guild, I can't change your nickname!`)
+          message.channel.send(nickisowner)
+        } else {
+          message.member.setNickname(args)
+          const nickname = new Discord.RichEmbed()
+            .setColor("#fff")
+            .setTitle("Succes!")
+            .setDescription(`Nickname changed to: **${args}**`)
+            message.channel.send(nickname)
+        }
+      } else {
+        const nicktomany = new Discord.RichEmbed()
+          .setColor("#fff")
+          .setDescription("You can only have 32 chachaters in your nickname!")
+          message.channel.send(nicktomany)
+      }
+    }
+} else {
+  if (message.member.hasPermission("MANAGE_NICKNAMES")) {
+    if (clientbot.hasPermission("MANAGE_NICKNAMES")) {
+      if (args2.length === 0) {
+        let mentionednick1 = message.mentions.members.first()
+        let mgn1 = message.guild.members.get(mentionednick1.id)
+          if (mgn1.nickname != null) {
+            mgn1.setNickname(args2)
+              const removenickname = new Discord.RichEmbed()
+                .setColor("#fff")
+                .setTitle("Succes!")
+                .setDescription(`Nickname of ${mgn1.user.username} Removed!\nDefault Username: **${mgn1.user.username}**`)
+
+          message.channel.send(removenickname)
+        } else {
+          mgn1.setNickname(args2)
+          const nonickremove = new Discord.RichEmbed()
+          .setTitle("No Succes!")
+          .setDescription(`Can't remove the username of\n${mgn1.user.username} because he/she doesn't have a nickname!`)
+          .setColor("#fff")
+
+        message.channel.send(nonickremove)
+      }
+    } else {
+      let mentionednick2 = message.mentions.members.first()
+      let mgn2 = message.guild.members.get(mentionednick2.id)
+      mgn2.setNickname(args2)
+      const args2nickname = new Discord.RichEmbed()
+        .setColor("#fff")
+        .setTitle("Succes!")
+        .setDescription(`Nickname of ${mgn2.user.username} changed to: **${args2}**`)
+
+        message.channel.send(args2nickname)
+      }
+    } else {
+      const nickotherbotnoperm = new Discord.RichEmbed()
+        .setColor("#fff")
+        .addField("❌ Permission Error ❌", `I don't have perms to change nicknames of other users!\nNeeded Permission: **MANAGE_NICKNAMES**`)
+
+        message.channel.send(nickotherbotnoperm)
+    }
+} else {
+  const nickothernoperm = new Discord.RichEmbed()
+    .setColor("#fff")
+    .addField("❌ Permission Error ❌", `You don't have perms to change nicknames of other users!\nNeeded Permission: **MANAGE_NICKNAMES**`)
+
+    message.channel.send(nickothernoperm)
+  }
+}
+} else {
+  const nickselfbotnoperm = new Discord.RichEmbed()
+    .setColor("#fff")
+    .addField("❌ Permission Error ❌", `I don't have perms to change nicknames!\nNeeded Permission: **MANAGE_NICKNAMES**`)
+    message.channel.send(nickselfbotnoperm)
+}
+} else {
+message.react("❌")
+}
+}
+});
   
   
       client.on('message', message => {
