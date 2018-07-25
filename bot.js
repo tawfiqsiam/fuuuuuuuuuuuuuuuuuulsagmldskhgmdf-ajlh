@@ -8,6 +8,7 @@ const adminprefix = "+";
 const devs = ['402043862480322562', '443696811421466624'];
 const moment = require('moment');
 const ytdl = require('ytdl-core');
+const yt = require('ytdl-core');
 const request = require('request');
 const getYoutubeID = require('get-youtube-id');
 const fetchVideoInfo = require('youtube-info');
@@ -155,14 +156,14 @@ client.on('message' , message => {
   }
   });
 
-  client.on("message", message => {
-    if (message.content === "+help") {
-           message.react("✅")
-              message.react("📬")
-     const embed = new Discord.RichEmbed() 
-         .setColor("#ffff00")
-         .setDescription(`
-   
+client.on("message", message => {
+  if (message.content === "+help") {
+         message.react("✅")
+            message.react("📬")
+   const embed = new Discord.RichEmbed() 
+       .setColor("#ffff00")
+       .setDescription(`
+ 
 ╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
 ╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
 ╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
@@ -172,36 +173,37 @@ client.on('message' , message => {
 ╱╱╱╱╱╱╱╱╱╭━╯┃
 ╱╱╱╱╱╱╱╱╱╰━━╯
 ══════════ஜ۩۞۩ஜ════════════ 
-      🌎「اوامر عامة」💎
+       اوامر البوت
 
-       **+help-public**
-    
-      👑「اوامر ادارية」👑
-
-       **+help-admin**
-   
-         🎮「العاب」🎮
-
-        **+help-games**
-
-       🎵「أوامر الأغاني」🎵
-
-        **+help-music**
-
-   ══════════ஜ۩۞۩ஜ════════════
-
-   +sug 「لأرسال اقتراح لصاحب البوت」
+اوامر العامة
+  └─ **+help-public**
+  
+اوامر ادارية
+  └─ **+help-admin**
  
-   +invite 「لدعوة البوت لسيرفرك」
-   
-    `)
-       
-       
-      message.author.sendEmbed(embed)
-       
-      }
-      }); 
+العاب
+  └─**+help-games**
 
+أوامر الأغاني
+  └─**+help-music**
+
+  أوامر القرأن الكريم
+  └─**+help-quran**
+
+ ══════════ஜ۩۞۩ஜ════════════
+
+ **:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
+ 🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
+ :exclamation:  **| لدعوة البوت  : +invite
+ :exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+  `)
+  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+     
+     
+    message.author.sendEmbed(embed)
+     
+    }
+    }); 
 //╭━━━╮╱╱╭╮╱╭╮
 //┃╭━╮┃╱╱┃┃╱┃┃
 //┃╰━╯┣╮╭┫╰━┫┃╭┳━━╮
@@ -1177,14 +1179,13 @@ client.on('message', message => {
 }
 });
 
-client.on("message", message => {
+    client.on("message", message => {
 if (message.content === "+help-public") {
 message.react("✅")
 message.react("😵")
-                         const embed = new Discord.RichEmbed() 
-                             .setColor("#ffff00")
-                             .setDescription(`
-
+ const embed = new Discord.RichEmbed() 
+     .setColor("#fff")
+     .setDescription(`
 ╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
 ╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
 ╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
@@ -1193,75 +1194,75 @@ message.react("😵")
 ╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
 ╱╱╱╱╱╱╱╱╱╭━╯┃
 ╱╱╱╱╱╱╱╱╱╰━━╯
-                             
-
-       ══════════ஜ۩۞۩ஜ════════════
-            🌎「اوامر عامة」💎
-                       
-🌎+bot 「يعرض لك معلومات عن البوت」
-
-🌎+server 「يعرض لك معلومات السيرفر」
- 
-🌎+user 「أمر الايدي」
-
-🌎+id 「أمر الايدي بشكل مميز」
-
-🌎+roleperms 「لمعرفة خصائص رتبتك او خصائص رتبة معينه عن طريق اسم الرتبة」
-
-🌎+mb 「لمعرفة حالة الاعضاء」 
-
-🌎+member 「عدد وحالة اعضاء السيرفر」 
-                        
-🌎+report 「للابلاغ عن شخص」
-
-ملاحظة:**يجب انشاء روم بأسم report لتلقي الابلاغات**
-
-🌎+report-owner 「لأرسال ابلاغ لصاحب السيرفر」 
-
-🌎+date 「لمعرفه التاريخ」
-
-🌎+dt 「لمعرفة التاريخ والوقت لدولة مصر والسعودية والامارات」
-                           
-🌎+ping 「لمعرفه سرعه البوت」
-
-🌎+emojis 「يعرض لك ايموجيات حقت السيرفر」
-
-🌎+rooms 「لعرض عدد واسماء الرومات」
-
-🌎+roles 「لعرض اسماءالرتب」
-
-🌎+channel 「يعرض لك معلومات عن الروم」
-
-🌎+inforole 「يعرض لك معلومات عن رتبة」
-
-🌎+embed 「خاصيه غرد لكن بغير طريقه」
-
-🌎+say 「لي يكرر الكلام الذي تقوله」
-
-🌎رابط
-「لارسال رابط السيرفر على الخاص」
-
-🌎+invites 「يعرض لك كم جبت اعضاء لهذة السيرفر」
-
-🌎+invite-codes 「يرسل لك على الخاص جميع الروابط التي قمت بأنشائها لهذة السيرفر」
-
-🌎+top 「يعرض لك جميع روابط دعوات التي تم انشائها مع عدد الاشخاص الي دخلو من الرابط」
-
-🎴+avatar 「لي عرض صورتك او صوره اي شخص」
-
-🎴+image 「لي عرض صوره السيرفر」
+     
+ ══════════ஜ۩۞۩ஜ════════════
+ **       اوامر عامة    
++bot
+  └─ يعرض لك معلومات عن البوت
++server
+  └─ يعرض لك معلومات السيرفر
++user 
+  └─ أمر الايدي
++id
+  └─ أمر الايدي بشكل مميز
++roleperms
+  └─ لمعرفة خصائص رتبتك او خصائص رتبة معينه عن طريق اسم الرتبة
++mb
+  └─ لمعرفة حالة الاعضاء 
++member
+  └─ عدد وحالة اعضاء السيرفر 
++report
+  └─ للابلاغ عن شخص
+      └─ملاحظة: يجب انشاء روم بأسم report لتلقي الابلاغات
++report-owner
+  └─ لأرسال ابلاغ لصاحب السيرفر 
++date
+  └─ لمعرفه التاريخ
++dt
+  └─ لمعرفة التاريخ والوقت لدولة مصر والسعودية والامارات  
++ping
+  └─ لمعرفه سرعه البوت
++emojis
+  └─ يعرض لك ايموجيات حقت السيرفر
++rooms
+  └─ لعرض عدد واسماء الرومات
++roles
+  └─ لعرض اسماءالرتب
++channel
+  └─ يعرض لك معلومات عن الروم
++inforole
+  └─ يعرض لك معلومات عن رتبة
++embed
+  └─ خاصيه غرد لكن بغير طريقه
++say
+  └─ لي يكرر الكلام الذي تقوله
+رابط
+  └─ لارسال رابط السيرفر على الخاص
++invites
+  └─ يعرض لك كم جبت اعضاء لهذة السيرفر
++invite-codes
+  └─ يرسل لك على الخاص جميع الروابط التي قمت بأنشائها لهذة السيرفر
++top
+  └─ يعرض لك جميع روابط دعوات التي تم انشائها مع عدد الاشخاص الي دخلو من الرابط
++avatar
+  └─ لي عرض صورتك او صوره اي شخص
++image
+  └─ لي عرض صوره السيرفر**
 
 ══════════ஜ۩۞۩ஜ════════════
 
-+sug 「لأرسال اقتراح لصاحب البوت」
+**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
+🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
+:exclamation:  **| لدعوة البوت  : +invite
+:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+ `)
+ .setFooter('Requested by '+message.author.username, message.author.avatarURL)
  
-+invite 「لدعوة البوت لسيرفرك」
-                         
-                          `)
-                           
-                           
+  
+   
+   
 message.author.send({ embed: embed });
-                           
+   
 }
 }); 
                         
@@ -2810,14 +2811,14 @@ client.on('message', message => {
       }
       });
   
-      client.on("message", message => {
-        if (message.content === "+help-admin") {
-               message.react("✅")
-                  message.react("📬")
-         const embed = new Discord.RichEmbed() 
-             .setColor("#ffff00")
-             .setDescription(`
-       
+client.on("message", message => {
+  if (message.content === "+help-admin") {
+   message.react("✅")
+message.react("📬")
+   const embed = new Discord.RichEmbed() 
+ .setColor("#ffff00")
+ .setDescription(`
+ 
 ╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
 ╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
 ╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
@@ -2826,95 +2827,97 @@ client.on('message', message => {
 ╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
 ╱╱╱╱╱╱╱╱╱╭━╯┃
 ╱╱╱╱╱╱╱╱╱╰━━╯
+
+  ══════════ஜ۩۞۩ஜ════════════ 
+**       اوامر ادارية    
++bc
+  └─ للبرودكاست بأمبد
++allbc 
+  └─ للبرودكاست بدون أمبد
++onlinebc 
+  └─ لأرسال برودكاست للاونلاين فقط
++rolebc 
+  └─ لأرسال برودكاست لرتبة معينه
++ownerbc 
+  └─ لأرسال برودكاست لأونر السيرفر
++nick
+  └─ لحذف اسمك
++nickname
+  └─ لتغيير اسم شخص ما
++muteall 
+  └─ لقفل الشات
++unmuteall
+  └─ لفتح الشات
++hidechannel 
+  └─ لأخفاء الشات
++showchannel
+  └─ لأظهار الشات الشات  
++mute
+  └─ لاعطاء ميوت لشخص 
++mutevoice
+  └─ لاعطاء ميوت صوتي 
++unmutevoice
+  └─ لفك ميوت صوتي
++deafen
+  └─ لأعطاء ديفن 
++undeafen 
+  └─ لفك الديفن
++unmute 
+  └─ لفك الميوت
++createcolors 
+  └─ لعمل 137 لون مرتب 
++deletecolors
+  └─ لمسح جميع الألوان بالسيرفر
++ban
+  └─ لتعطي شخص باند مع السبب
++unban
+  └─ لفك الباند عند شخص محدد 
++kick
+  └─ لتعطي شخص كيك مع السبب   
++clear
+  └─ لمسح الشات   
++tc
+  └─ لانشاء روم صوتي وكتابي مؤقت
++cc
+  └─ لانشاء كاتجوري 
++cv
+  └─ لانشاء روم صوتي دائم 
++ct
+  └─ لانشاء روم كتابي دائم  
++delet
+  └─ يحذف الـروم سواء صوتي او كتابي
++role 
+  └─ لأعطاء رتبة
++removerole
+  └─ أزالة رتبة
++role all 
+  └─ لأعطاء جميع الي في سيرفر رتبة
++role bots
+  └─ لأعطاء جميع البوتات رتبة
++role humans
+  └─ لأعطاء جميع الناس معدى البوتات رتبة 
++voicekick
+  └─ لطرد شخص من روم صوتي
++move
+  └─ لسحب الشخص الى الروم صوتي الخاص بك
++move all
+  └─ لسحب جميع الاشخاص الموجودون بالرومات الصوتية أليك**
+  
+ ══════════ஜ۩۞۩ஜ════════════  
+ 
+ **:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
+ 🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
+ :exclamation:  **| لدعوة البوت  : +invite
+ :exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+  `)
+  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+
      
-        ══════════ஜ۩۞۩ஜ════════════ 
-            👑「اوامر ادارية」👑
-           
-👑+bc 「للبرودكاست بأميد」
- 
-👑+allbc 「للبرودكاست بدون أميد」
- 
-👑+onlinebc 「لأرسال برودكاست للاونلاين فقط」
- 
-👑+rolebc 「لأرسال برودكاست لرتبة معينه」
-
-👑+ownerbc 「لأرسال برودكاست لأونر السيرفر」
-
-👑+nick 「لحذف اسمك」
-
-👑+nickname 「لتغيير اسم شخص ما」
-        
-👑+muteall 「لقفل الشات」
-        
-👑+unmuteall 「لفتح الشات」
-
-👑+hidechannel 「لأخفاء الشات」
-
-👑+showchannel 「لأظهار الشات الشات」
-        
-👑+mute 「 لاعطاء ميوت لشخص 」
-        
-👑+mutevoice 「 لاعطاء ميوت صوتي 」
-        
-👑+unmutevoice 「لفك ميوت صوتي 」
-        
-👑+deafen 「لأعطاء ديفن」
-        
-👑+undeafen 「لفك الديفن」
-        
-👑+unmute 「 لفك الميوت」
-        
-👑+createcolors 「لعمل 137 لون مرتب」
-
-👑+deletecolors 「لمسح جميع الألوان بالسيرفر」
-
-👑+ban 「لتعطي شخص باند مع السبب」
-       
-👑+unban 「لفك الباند عند شخص محدد」
-          
-👑+kick 「لتعطي شخص كيك مع السبب」
-           
-👑+clear 「لمسح الشات」
-           
-👑+tc  「لانشاء روم صوتي وكتابي مؤقت」
-        
-👑+cc  「لانشاء كاتجوري 」
-        
-👑+cv  「لانشاء روم صوتي دائم 」
-       
-👑+ct  「لانشاء روم كتابي دائم 」
-        
-👑+delet   「يحذف الـروم سواء صوتي او كتابي」
-        
-👑+role  「لأعطاء رتبة」
-        
-👑+removerole  「 أزالة رتبة」
-        
-👑+role all  「لأعطاء جميع الي في سيرفر رتبة」
-        
-👑+role bots  「لأعطاء جميع البوتات رتبة」
-        
-👑+role humans   「لأعطاء جميع الناس معدى البوتات رتبة 」
-        
-👑+voicekick  「لطرد شخص من روم صوتي」
-        
-👑+move  「لسحب الشخص الى الروم صوتي الخاص بك」
-       
-👑+move all 「لسحب جميع الاشخاص الموجودون بالرومات الصوتية أليك」
-       
-        
-       ══════════ஜ۩۞۩ஜ════════════  
-       
-   +sug 「لأرسال اقتراح لصاحب البوت」
- 
-   +invite 「لدعوة البوت لسيرفرك」
-        `)
-           
-           
-          message.author.sendEmbed(embed)
-           
-          }
-          }); 
+     
+    message.author.sendEmbed(embed)
+     
+    }
+    }); 
 
 
 
@@ -3488,57 +3491,55 @@ function play(guild, song) {
 
 }
 
-                      client.on("message", message => {
-                        if (message.content === "+help-music") {
-                               message.react("✅")
-                                  message.react("📬")
-                         const embed = new Discord.RichEmbed() 
-                             .setColor("#ffff00")
-                            .setDescription(`
+client.on("message", message => {
+  if (message.content === "+help-music") {
+         message.react("✅")
+            message.react("📬")
+   const embed = new Discord.RichEmbed() 
+       .setColor("#fff")
+      .setDescription(`
+
+╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
+╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
+╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
+╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
+╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
+╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
+╱╱╱╱╱╱╱╱╱╭━╯┃
+╱╱╱╱╱╱╱╱╱╰━━╯
+      
+══════════ஜ۩۞۩ஜ════════════  
+ **      اوامر الاغاني   
+
++play 
+  └─ لتشغيل اغنية عبر الأسم او رابط
++stop 
+  └─ لأيقاف الأغنيه
++skip 
+  └─ لتخطي الأغنية
++queue 
+  └─ لمعرفة الأغنية الأغنية الذي تم تشغيلها
++vol
+  └─ لتغيير درجة صوت
++pause
+  └─ لأيقاف الأغنية مؤقتاّ
++resume
+  └─ لأستمرار الأغنية**
+
+══════════ஜ۩۞۩ஜ════════════ 
+
+**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
+🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
+:exclamation:  **| لدعوة البوت  : +invite
+:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+ `)
+ .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+  
+ 
+    message.author.sendEmbed(embed)
     
-    ╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-    ╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-    ╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-    ╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-    ╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-    ╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-    ╱╱╱╱╱╱╱╱╱╭━╯┃
-    ╱╱╱╱╱╱╱╱╱╰━━╯
-                            
-    ══════════ஜ۩۞۩ஜ════════════  
-        🎵 اوامر الاغاني 🎵            
-
-🎵+play 
-「لتشغيل اغنية عبر الأسم او رابط」
-
-🎵+stop 
-「لأيقاف الأغنيه」
-
-🎵+skip 
-「لتخطي الأغنية」
-                       
-🎵+queue 
-「لمعرفة الأغنية الأغنية الذي تم تشغيلها」
-
-🎵+vol
-「لتغيير درجة صوت」
-
-🎵+pause
-「لأيقاف الأغنية مؤقتاّ」
-
-🎵+resume
-「لأستمرار الأغنية」
-    ══════════ஜ۩۞۩ஜ════════════ 
-    
-    +sug 「لأرسال اقتراح لصاحب البوت」
-     
-    +invite 「لدعوة البوت لسيرفرك」
-                        `)
-                       
-                          message.author.sendEmbed(embed)
-                          
-                          }
-                          }); 
+    }
+    }); 
 
 
 //╭━━━┳━━━┳━╮╭━┳━━━┳━━━╮
@@ -4007,15 +4008,89 @@ if (message.content.startsWith('+صراحه')) {
 }
 });  
 
+  client.on('message', message => {
+  
+if(message.content.split(' ')[0] == '+srh'){
+       if (message.author.bot) return;
+     if(!message.channel.guild) return;
+                       
+let args = message.content.split(' ').slice(1).join(' ');
+let arg = message.content.split(' ').slice(2).join(' ');
+if(!args) return message.reply ("**Mention A member please** :dove: ");
+  if(!arg) return message.reply ("**Write A Message** :dove: ");
 
-                  client.on("message", message => {
-                    if (message.content === "+help-games") {
-                           message.react("✅")
-                              message.react("📬")
-                     const embed = new Discord.RichEmbed() 
-                         .setColor("#ffff00")
-                        .setDescription(`
 
+ 
+ 
+ var user = message.mentions.users.first();
+
+       
+        if(user === message.author) return; 
+          let em  = new Discord.RichEmbed()
+.setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+.addField("◆ Msg : " , arg)
+
+ .setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+                 message.delete()                                    
+client.guilds.get(message.guild.id).members.get(user.id).sendEmbed(em)
+           
+
+ let embed = new Discord.RichEmbed()
+ .setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+ .setDescription(':dove: شكرا لصراحتك')
+ .setColor("10bbb3")
+.setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+  message.channel.sendEmbed(embed);
+}
+});
+
+
+client.on('message', message => {
+  
+if(message.content.split(' ')[0] == '+srh1'){
+       if (message.author.bot) return;
+     if(!message.channel.guild) return;
+                       
+let args = message.content.split(' ').slice(1).join(' ');
+let arg = message.content.split(' ').slice(2).join(' ');
+if(!args) return message.reply ("**Mention A member please** :dove: ");
+  if(!arg) return message.reply ("**Write A Message** :dove: ");
+
+
+ 
+ 
+ var user = message.mentions.users.first();
+
+       
+        if(user === message.author) return; 
+          let e  = new Discord.RichEmbed()
+.setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+.addField("◆ Sent By :" , message.author.tag)
+.addField("◆ Msg : " , arg)
+
+ .setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+    message.delete()                                           
+client.guilds.get(message.guild.id).members.get(user.id).sendEmbed(e)
+                                  
+
+
+
+ let embed = new Discord.RichEmbed()
+ .setAuthor("Sarahah", "https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+ .setDescription(':dove: شكرا لصراحتك')
+ .setColor("10bbb3")
+.setThumbnail("https://upload.wikimedia.org/wikipedia/en/thumb/9/94/Sarahah_logo.png/250px-Sarahah_logo.png")
+  message.channel.sendEmbed(embed);
+}
+});
+
+client.on("message", message => {
+  if (message.content === "+help-games") {
+         message.react("✅")
+            message.react("📬")
+   const embed = new Discord.RichEmbed() 
+       .setColor("#fff")
+      .setDescription(`
 ╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
 ╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
 ╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
@@ -4024,49 +4099,270 @@ if (message.content.startsWith('+صراحه')) {
 ╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
 ╱╱╱╱╱╱╱╱╱╭━╯┃
 ╱╱╱╱╱╱╱╱╱╰━━╯
-                        
+      
 ══════════ஜ۩۞۩ஜ════════════  
-                    🎮「العاب」🎮
-                   
-🎮+فكك
-                   
-🎮+لغز
-                      
-🎮+كتابة
-                   
-🎮+رياضيات
-                   
-🎮+شقلب
-                   
-🎮+ركب
+ **       أوامر الألعاب
 
-🎮+حب
-
-🎮+كت تويت
++فكك
+  └─ لعبة فكك يعرض لك كلمه وعليك تفكيكها
++لغز
+  └─ لعبة لغز يعرض عليك لغز ولازم تحله
++كتابة
+ └─ لعبة لغز يعرض عليك كلمة وعليك كتابتها بأسرع وقت
++رياضيات
+  └─ لعبة رياضيات يعرض عليك معادلة وعليك حلها
++شقلب
+  └─ لعبة شقلب يعرض عليك كلمها وعليك عكسها
++ركب
+  └─ لعبة ركب يعرض عليك كلمها مفكوكه وعليك تجميعها
+ +حب
+  └─ يعرض لك كلام حب
++كت تويت
+  └─ يعرض لك اسئله جميله للكت تويت
++لو خيروك 
+  └─ لعبة لو خيروك يعرض شيء يخيرك بينهم
++خواطر 
+  └─ يعرض لك كلام جميل ومفيد
++صراحه
+  └─ لعبة صراحه يعرض عليك اسئله محرجه وعليك جواب بكل صدقيه
++animal
+  └─ يعطيك صور حيوانات
++marry
+  └─ لعبة زواج تطلب زواج من أي شخص تريده
++srh
+  └─ لأرسال صراحة بدون ذكر اسم المصارح
++srh1
+  └─ لأرسال صراحة مع ذكر اسم المصارح**
  
-🎮+لو خيروك 
-
-🎮+خواطر 
-
-🎮+صراحه
-
-🎮+animal
-
-🎮+marry
-
-                   
 ══════════ஜ۩۞۩ஜ════════════ 
 
-+sug 「لأرسال اقتراح لصاحب البوت」
+**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
+🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
+:exclamation:  **| لدعوة البوت  : +invite
+:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+ `)
+ .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+  
  
-+invite 「لدعوة البوت لسيرفرك」
-                    `)
-                   
-                      message.author.sendEmbed(embed)
-                      
-                      }
-                      }); 
+    message.author.sendEmbed(embed)
+    
+    }
+    }); 
 
+
+
+//╭━━━╮╱╱╱╱╱╱╱╱╱╱╭╮╭━╮
+//┃╭━╮┃╱╱╱╱╱╱╱╱╱╱┃┃┃╭╯
+//┃┃╱┃┣╮╭┳━┳━━┳━╮┃╰╯╯╭━━┳━┳┳╮╭╮
+//┃┃╱┃┃┃┃┃╭┫╭╮┃╭╮┫╭╮┃┃╭╮┃╭╋┫╰╯┃
+//┃╰━╯┃╰╯┃┃┃╭╮┃┃┃┃┃┃╰┫╭╮┃┃┃┃┃┃┃
+//╰━━╮┣━━┻╯╰╯╰┻╯╰┻╯╰━┻╯╰┻╯╰┻┻┻╯
+//╱╱╱╰╯
+
+
+
+client.on("message", message => {
+  if (message.content === "+help-quran") {
+         message.react("✅")
+            message.react("📬")
+   const embed = new Discord.RichEmbed() 
+       .setColor("#fff")
+      .setDescription(`
+╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
+╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
+╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
+╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
+╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
+╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
+╱╱╱╱╱╱╱╱╱╭━╯┃
+╱╱╱╱╱╱╱╱╱╰━━╯
+      
+══════════ஜ۩۞۩ஜ════════════  
+ **       أوامر القرأن الكريم
+
++quran
+  └─ يشغل قرأن الكريم كاملآ
++quran-stop
+  └─ يوقف قرأن الكريم كاملآ
++alkahf 
+  └─ يشغل سورة الكهف
++alkahf-stop
+  └─ يوقف سورة الكهف
++albaqara
+ └─ يشغل سورة البقرة
++albaqara-stop
+  └─ يوقف سورة البقرة
++yasin
+  └─ يشغل سورة يس
++yasin-stop
+  └─ يوقف سورة يس
++alkursi
+  └─ يشغل سورة الكرسي
++alkursi-stop
+  └─ يوقف سورة الكرسي**
+ 
+══════════ஜ۩۞۩ஜ════════════ 
+
+**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
+🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
+:exclamation:  **| لدعوة البوت  : +invite
+:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+ `)
+ .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+  
+ 
+    message.author.sendEmbed(embed)
+    
+    }
+    }); 
+    client.on('message', message => {
+        if (message.content.startsWith('+quran')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+          voiceChannel.join()
+            .then(connnection => {
+              let stream = yt('https://www.youtube.com/watch?v=9-oGnGaI9Ps&t=8009s', {audioonly: true});
+              const dispatcher = connnection.playStream(stream);
+              dispatcher.on('end', () => {
+                voiceChannel.leave();
+              });
+            });
+        }
+        
+        if (message.content.startsWith('+quran-stop')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+      voiceChannel.leave();
+        }
+      
+      });
+
+      client.on('message', message => {
+        if (message.content.startsWith('+alkahf')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+          voiceChannel.join()
+            .then(connnection => {
+              let stream = yt('https://www.youtube.com/watch?v=sOML64y5dfQ', {audioonly: true});
+              const dispatcher = connnection.playStream(stream);
+              dispatcher.on('end', () => {
+                voiceChannel.leave();
+              });
+            });
+        }
+        
+        if (message.content.startsWith('+alkahf-stop')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+      voiceChannel.leave();
+        }
+      
+      });
+      
+      client.on('message', message => {
+        if (message.content.startsWith('+albaqara')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+          voiceChannel.join()
+            .then(connnection => {
+              let stream = yt('https://www.youtube.com/watch?v=gIYaTs1Kw90', {audioonly: true});
+              const dispatcher = connnection.playStream(stream);
+              dispatcher.on('end', () => {
+                voiceChannel.leave();
+              });
+            });
+        }
+        
+        if (message.content.startsWith('+albaqara-stop')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+      voiceChannel.leave();
+        }
+      
+      });
+      client.on('message', message => {
+        if (message.content.startsWith('+yasin')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+          voiceChannel.join()
+            .then(connnection => {
+              let stream = yt('https://www.youtube.com/watch?v=KpNqGctH-p0', {audioonly: true});
+              const dispatcher = connnection.playStream(stream);
+              dispatcher.on('end', () => {
+                voiceChannel.leave();
+              });
+            });
+        }
+        
+        if (message.content.startsWith('+yasin-stop')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+      voiceChannel.leave();
+        }
+      
+      });
+
+      client.on('message', message => {
+        if (message.content.startsWith('+alkursi')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+          voiceChannel.join()
+            .then(connnection => {
+              let stream = yt('https://www.youtube.com/watch?v=fcoQCIBMuRg', {audioonly: true});
+              const dispatcher = connnection.playStream(stream);
+              dispatcher.on('end', () => {
+                voiceChannel.leave();
+              });
+            });
+        }
+        
+        if (message.content.startsWith('+alkursi-stop')) {
+                    if(!message.channel.guild) return message.reply('** This command only for servers **');
+      
+          const voiceChannel = message.member.voiceChannel;
+          if (!voiceChannel) {
+            return message.reply(`من فضلك ادخل روم صوتي `);
+          }
+      voiceChannel.leave();
+        }
+      
+      });
             client.login(process.env.BOT_TOKEN);
 
   
