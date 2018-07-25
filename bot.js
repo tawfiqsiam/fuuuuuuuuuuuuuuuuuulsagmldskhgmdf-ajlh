@@ -1498,14 +1498,14 @@ client.on('message', async message =>{
     }
   
   });
-  
 client.on('message', message => {
-    var prefix = '$';
+    var prefix = '+';
 if (message.content.startsWith(prefix + "nickname" && prefix + "nick")) {
   let args = message.content.split(' ').slice(1).join(' ');
   let args2 = message.content.split(' ').slice(2).join(' ');
 if (message.member.hasPermission("CHANGE_NICKNAME")) {
   let mention = message.mentions.members.first();
+
   let clientbot = message.guild.me
   if (clientbot.hasPermission("MANAGE_NICKNAMES")) {
     if (message.mentions.users.size === 0) {
@@ -1513,16 +1513,19 @@ if (message.member.hasPermission("CHANGE_NICKNAME")) {
         if (message.member.nickname != null) {
           message.member.setNickname(args2)
           const removenickname = new Discord.RichEmbed()
-            .setColor("#fff")
-            .setTitle("Succes!")
-            .setDescription(`Nickname Removed!\nDefault Username: **${message.author.username}**`)
+          .setColor("#fff")
+          .setTitle(" أمثله على الأوامر : ")
+          .setDescription(`
+          **+nick** : لحذف اسمك في السيرفر
+          **+nickname @Moha Someone** : لتغيير اسم شخص ما في السيرفر`)
+          .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
         message.channel.send(removenickname)
       } else {
         const nosucremovenick = new Discord.RichEmbed()
         .setTitle("No Succes!")
         .setColor("#fff")
-        .setDescription("Can't remove your username because you don't have one!")
+        .setDescription("**:x: | لا يمكنني حذف اسمك لانه لا يوجد آسم من الأصل**")
 
         message.channel.send(nosucremovenick)
       }
@@ -1531,20 +1534,20 @@ if (message.member.hasPermission("CHANGE_NICKNAME")) {
         if (message.author.id === message.guild.owner.id) {
           const nickisowner = new Discord.RichEmbed()
           .setColor("#fff")
-          .addField("❌ Permission Error ❌", `Because you are the owner of the guild, I can't change your nickname!`)
+          .addField("**:x: | ❌ Permission Error ❌**", `**Because you are the owner of the guild, I can't change your nickname!**`)
           message.channel.send(nickisowner)
         } else {
           message.member.setNickname(args)
           const nickname = new Discord.RichEmbed()
             .setColor("#fff")
             .setTitle("Succes!")
-            .setDescription(`Nickname changed to: **${args}**`)
+            .setDescription(`**:white_check_mark:| Nickname changed to:** **${args}**`)
             message.channel.send(nickname)
         }
       } else {
         const nicktomany = new Discord.RichEmbed()
           .setColor("#fff")
-          .setDescription("You can only have 32 chachaters in your nickname!")
+          .setDescription("**:x: | يجب آن يكون عدد الأحرف لا يتعدى 32 حرفاّ**")
           message.channel.send(nicktomany)
       }
     }
@@ -1559,14 +1562,14 @@ if (message.member.hasPermission("CHANGE_NICKNAME")) {
               const removenickname = new Discord.RichEmbed()
                 .setColor("#fff")
                 .setTitle("Succes!")
-                .setDescription(`Nickname of ${mgn1.user.username} Removed!\nDefault Username: **${mgn1.user.username}**`)
+                .setDescription(`**:white_check_mark:| Nickname of ${mgn1.user.username} Removed!\nDefault Username:** **${mgn1.user.username}**`)
 
           message.channel.send(removenickname)
         } else {
           mgn1.setNickname(args2)
           const nonickremove = new Discord.RichEmbed()
           .setTitle("No Succes!")
-          .setDescription(`Can't remove the username of\n${mgn1.user.username} because he/she doesn't have a nickname!`)
+          .setDescription(`**:x: | Can't remove the username of\n${mgn1.user.username} because he/she doesn't have a nickname!**`)
           .setColor("#fff")
 
         message.channel.send(nonickremove)
@@ -1578,21 +1581,21 @@ if (message.member.hasPermission("CHANGE_NICKNAME")) {
       const args2nickname = new Discord.RichEmbed()
         .setColor("#fff")
         .setTitle("Succes!")
-        .setDescription(`Nickname of ${mgn2.user.username} changed to: **${args2}**`)
+        .setDescription(`**:white_check_mark:| Nickname of ${mgn2.user.username} changed to:** **${args2}**`)
 
         message.channel.send(args2nickname)
       }
     } else {
       const nickotherbotnoperm = new Discord.RichEmbed()
         .setColor("#fff")
-        .addField("❌ Permission Error ❌", `I don't have perms to change nicknames of other users!\nNeeded Permission: **MANAGE_NICKNAMES**`)
+        .addField("**:x: |  ❌ Permission Error ❌**", `**I don't have perms to change nicknames of other users!\nNeeded Permission:** **MANAGE_NICKNAMES**`)
 
         message.channel.send(nickotherbotnoperm)
     }
 } else {
   const nickothernoperm = new Discord.RichEmbed()
     .setColor("#fff")
-    .addField("❌ Permission Error ❌", `You don't have perms to change nicknames of other users!\nNeeded Permission: **MANAGE_NICKNAMES**`)
+    .addField("**:x: | ❌ Permission Error ❌**", `**You don't have perms to change nicknames of other users!\nNeeded Permission:** **MANAGE_NICKNAMES**`)
 
     message.channel.send(nickothernoperm)
   }
@@ -1600,7 +1603,7 @@ if (message.member.hasPermission("CHANGE_NICKNAME")) {
 } else {
   const nickselfbotnoperm = new Discord.RichEmbed()
     .setColor("#fff")
-    .addField("❌ Permission Error ❌", `I don't have perms to change nicknames!\nNeeded Permission: **MANAGE_NICKNAMES**`)
+    .addField("**:x: | ❌ Permission Error ❌**", `**I don't have perms to change nicknames!\nNeeded Permission:** **MANAGE_NICKNAMES**`)
     message.channel.send(nickselfbotnoperm)
 }
 } else {
@@ -2837,7 +2840,9 @@ client.on('message', message => {
 
 👑+ownerbc 「لأرسال برودكاست لأونر السيرفر」
 
-👑+rename 「لتغير أسم شخص ما」
+👑+nick 「لحذف اسمك」
+
+👑+nickname 「لتغيير اسم شخص ما」
         
 👑+muteall 「لقفل الشات」
         
