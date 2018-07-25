@@ -194,7 +194,7 @@ client.on("message", message => {
 
  **:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
  🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
- :exclamation:  **| لدعوة البوت  : +invite
+ :exclamation:  **| لدعوة البوت ** : +invite
  :exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
   `)
   .setFooter('Requested by '+message.author.username, message.author.avatarURL)
