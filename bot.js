@@ -1650,59 +1650,71 @@ message.react("❌")
   });
    
   
-      client.on('message', message => {
-          if(!message.channel.guild) return;
-          var prefix = "+";
-      if(message.content.startsWith(prefix + 'move')) {
-          var cmdrole = message.guild.roles.find("name", config.cmdrole)
-             if (message.member.hasPermission("MOVE_MEMBERS")) {
-  if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**I Don't Have `MOVE_MEMBERS` Permission**").then(msg => msg.delete(6000))
-                    if (message.mentions.users.size === 0) {
-                           return message.channel.send("``لاستخدام الأمر اكتب هذه الأمر : " +prefix+ "move [USER]``")
-                    }
-                    if (message.member.voiceChannel != null) {
-                           if (message.mentions.members.first().voiceChannel != null) {
-                                  var authorchannel = message.member.voiceChannelID;
-                                  var usermentioned = message.mentions.members.first().id;
-                                 var embed = new Discord.RichEmbed()
-                                    .setTitle("Succes!")
-                                    .setColor("#000000")
-                                    .setDescription(`لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك:white_check_mark: `)
-                                  var embed = new Discord.RichEmbed()
-                                    .setTitle(`You are Moved in ${message.guild.name}`)
-                                    .setColor("#000000")
-                                    .setDescription(`<@${message.author.id}> moved you to his channel!\nServer => ${message.guild.name}`)
-                                                                message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
-                                  message.guild.members.get(usermentioned).send(embed)
-                           } else {
-                                  message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
-                           }
-                    } else {
-                           message.channel.send("``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``")
-                    }
-             } else {
-                    message.react("❌")
-             }
-          }
-          });
+client.on('message', message => {
+  if(!message.channel.guild) return;
+  var prefix = "+";
+if(message.content.startsWith(prefix + 'move')) {
+  var cmdrole = message.guild.roles.find("name", config.cmdrole)
+     if (message.member.hasPermission("MOVE_MEMBERS")) {
+if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**I Don't Have `MOVE_MEMBERS` Permission**").then(msg => msg.delete(6000))
+            if (message.mentions.users.size === 0) { const move = new Discord.RichEmbed()
+                   .setColor("#fff")
+                   .setTitle(" أمثله على الأوامر : ")
+                   .setDescription(`
+         **+move @Moha**: لسحب شخص ما الى الروم الصوتي الخاص بك
+         **+move all**: لسحب جميع الاعضاء الى روم الصوتي الخاص بك`)
+                   .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+               
+                 message.channel.send(move)
+            }
+            if (message.member.voiceChannel != null) {
+                   if (message.mentions.members.first().voiceChannel != null) {
+                          var authorchannel = message.member.voiceChannelID;
+                          var usermentioned = message.mentions.members.first().id;
+                         var embed = new Discord.RichEmbed()
+                            .setTitle("Succes!")
+                            .setColor("#fff")
+                            .setDescription(`**:white_check_mark:| لقد قمت بسحب <@${usermentioned}> الى الروم الصوتي الخاص بك**`)
+                            .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+
+                          var embed = new Discord.RichEmbed()
+                            .setTitle(`You are Moved in ${message.guild.name}`)
+                            .setColor("#000000")
+                            .setDescription(`<@${message.author.id}> moved you to his channel!\nServer => ${message.guild.name}`)
+                            .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+                                                        message.guild.members.get(usermentioned).setVoiceChannel(authorchannel).then(m => message.channel.send(embed))
+                          message.guild.members.get(usermentioned).send(embed)
+                   } else {
+                          message.channel.send("``لا تستطيع سحب "+ message.mentions.members.first() +" `يجب ان يكون هذه العضو في روم صوتي`")
+                   }
+            } else {
+                   message.channel.send("``يجب ان تكون في روم صوتي لكي تقوم بسحب العضو أليك``")
+            }
+     } else {
+            message.react("❌")
+     }
+  }
+  });
+
   
-          client.on('message', message => {
-            var prefix = "+";
-            if(message.content.startsWith(prefix + 'move all')) {
-             if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
-               if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");
-            if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
-             var author = message.member.voiceChannelID;
-             var m = message.guild.members.filter(m=>m.voiceChannel)
-             message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
-             m.setVoiceChannel(author)
-             })
-             message.channel.send(`**تم سحب جميع الأعضاء إليك**`)
-            
-            
-             }
-               });
+client.on('message', message => {
+  var prefix = "+";
+  if(message.content.startsWith(prefix + 'move all')) {
+   if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
+     if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");
+  if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
+   var author = message.member.voiceChannelID;
+   var m = message.guild.members.filter(m=>m.voiceChannel)
+   message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
+   m.setVoiceChannel(author)
+   })
+   .setColor("#fff")
+   .setTitle("Succes!")
+   .setDescription(`**:white_check_mark:| تم سحب جميع الأعضاء الى الروم الصوتي الخاص بك`)
+             .setFooter('Requested by '+message.author.username, message.author.avatarURL)
   
+   }
+     });
   client.on("message", message => {
       var prefix = "+";
       const command = message.content.split(" ")[0];
@@ -1783,18 +1795,31 @@ message.react("❌")
   });
 
 client.on('message', message => {
-  var prefix = '+';
+  var prefix = '$';
 
   if (message.content.startsWith(prefix + "removerole")) {
     let clientbot = message.guild.me;
 if (clientbot.hasPermission("MANAGE_ROLES")) {
   if (!message.member.hasPermission("MANAGE_ROLES")) {
+    if(mention.highestRole.position >= message.guild.member(message.author).highestRole.positon) return message.reply('**لا يمكنك اعطاء لميوت شخص رتبته اعلى منك**')
+    if(mention.highestRole.positon >= message.guild.member(client.user).highestRole.positon) return message.reply('**لا يمكنني اعطاء ميوت لشخص رتبته اعلى مني**')
     message.react("❌")
   } else {
     let args = message.content.split(' ').slice(1).join(' ');
   let args2 = message.content.split(' ').slice(2).join(' ');
   if (message.mentions.users.size === 0) {
-    message.channel.send("**You used this command wronge! Usage: " +prefix+"removerole [USER] [ROLE]**")
+    const remove1 = new Discord.RichEmbed()
+    .setColor("#fff")
+    .setTitle(" أمثله على الأوامر : ")
+    .setDescription(`
+    **+role @Moha Mod** : لأعطاء رتبة لشخص 
+    **+remove @Moha Mod** : لأزاله رتبة من شخص
+    **+role all Guest** : لاعطاء رتبة للجميع
+    **+role bots System** : لاعطاء رتبة لجميع البوتات
+    **+role humans User** : لاعطاء رتبة للأشخاص فقط`)
+    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+
+  message.channel.send(remove1)
   } else {
     var mentioned = message.mentions.members.first().id;
     var mgm = message.guild.members.get(mentioned)
@@ -1805,24 +1830,34 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
         if (mgm.roles.has(role.id)) {
         mgm.removeRole(role)
         const roleremoved = new Discord.RichEmbed()
-          .addField(`Role Removed!!`, `The role **${args2}** has been removed from <@${mgm.id}>`)
+          .addField(`**Role Removed!!**`, `**:white_check_mark:| The role **${args2}** has been removed from <@${mgm.id}>**`)
           .setColor("#fff")
           message.channel.send(roleremoved)
         } else {
-          message.channel.send("**"+mgm.user.tag+"** doesn't have the role **" + role.name + "**!")
+          message.channel.send("**:x: |"+mgm.user.tag+"** doesn't have the role **" + role.name + "**!")
         }
       } else {
-        message.channel.send("The role named ``"+args2+"`` doesn't exist!")
+        message.channel.send("**:x: |The role Named **``"+args2+"``** doesn't exist!**")
       }
 
     } else {
-      message.channel.send("**You used this command wronge! Usage: " +prefix+"removerole [USER] [ROLE]**")
-    }
+      const removerole = new Discord.RichEmbed()
+      .setColor("#fff")
+      .setTitle(" أمثله على الأوامر : ")
+      .setDescription(`
+      **+role @Moha Mod** : لأعطاء رتبة لشخص 
+      **+remove @Moha Mod** : لأزاله رتبة من شخص
+      **+role all Guest** : لاعطاء رتبة للجميع
+      **+role bots System** : لاعطاء رتبة لجميع البوتات
+      **+role humans User** : لاعطاء رتبة للأشخاص فقط`)
+      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+
+    message.channel.send(removerole)    }
   }
 }
 } else {
 const botnoperm = new Discord.RichEmbed()
-        .setColor(redcolor)
+        .setColor("#fff")
         .addField("❌ Permission Error ❌", `I don't have perms to add roles to users!\nNeeded Permission: **MANAGE_ROLES**`)
 
         message.channel.send(botnoperm)
