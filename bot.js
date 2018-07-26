@@ -1314,65 +1314,65 @@ client.on('message' , message => {
 
   
   
-     client.on('message', message => {
-        var prefix = "+";
 
-        if (message.author.codes) return;
-        if (!message.content.startsWith(prefix)) return;
-      
-        let command = message.content.split(" ")[0];
-        command = command.slice(prefix.length);
-      
-        let args = message.content.split(" ").slice(1);
-      
-        if (command == "ban") {
-                     if(!message.channel.guild) return message.reply('** This command only for servers**');
-               
-        if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
-        if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-        let user = message.mentions.users.first();
-        
-        if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-        if (!message.guild.member(user)
-        .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
-      
-      
-        message.guild.member(user).ban(7, user);
-      
-      message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `)
-      
-      }
-      });
-        
+client.on('message', message => {
+  var prefix = "+";
+  const guild = message.guild;
 
-  client.on('message', message => {
-    var prefix = "+";
-    if (message.author.omar) return;
-    if (!message.content.startsWith(prefix)) return;
-    var command = message.content.split(" ")[0];
-    command = command.slice(prefix.length);
-    var args = message.content.split(" ").slice(1);
-    if (command == "kick") {
-     if(!message.channel.guild) return message.reply('** This command only for servers :x:**');
-    if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
-    if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
-    var user = message.mentions.users.first();
-    var reason = message.content.split(" ").slice(2).join(" ");
-    if (message.mentions.users.size < 1) return message.reply("**__Mention__ A Member To Kick !**");
-    if(!reason) return message.reply ("**Write A __Reason__ !**");
-    if (!message.guild.member(user).kickable) return message.reply("**Can't Kick A Higher Role Than Me !**");
-    const kickembed = new Discord.RichEmbed()
-    .setAuthor(`KICKED!`, user.displayAvatarURL)
-    .setColor("RANDOM")
-    .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-    .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-    .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-    message.channel.send({embed : kickembed})
-    user.send(reason).then(()=>{
-  message.guild.member(user).kick();
-    })
-  }
-  });
+  if (message.author.codes) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "ban") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+         
+  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
+  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+  let user = message.mentions.users.first();
+  
+  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if (!message.guild.member(user)
+  .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
+
+
+  message.guild.member(user).ban(7, user);
+
+message.channel.send(`**:white_check_mark: ${user.tag} Banned From The Server By : <@${message.author.id}> ! :airplane: **  `)
+  
+guild.owner.send(`**تم تبنيد** :${user.tag}  
+**بواسطة** : <@${message.author.id}>`)
+
+}
+});
+
+client.on('message', message => {
+  var prefix = "+";
+  if (message.author.omar) return;
+  if (!message.content.startsWith(prefix)) return;
+  var command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  var args = message.content.split(" ").slice(1);
+  if (command == "kick") {
+   if(!message.channel.guild) return message.reply('** This command only for servers :x:**');
+   const guild = message.guild;
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
+  var user = message.mentions.users.first();
+  var reason = message.content.split(" ").slice(2).join(" ");
+  if (message.mentions.users.size < 1) return message.reply("** Mention A Member To Kick !**");
+  if (!message.guild.member(user).kickable) return message.reply("**Can't Kick A Higher Role Than Me !**");
+  message.channel.send(`**:white_check_mark: ${user.tag} Kicked Form The Server By : <@${message.author.id}> ! :airplane:** `)
+  guild.owner.send(`**تم تبنيد** :${user.tag}  
+**بواسطة** : <@${message.author.id}>`)
+  user.send(reason).then(()=>{
+message.guild.member(user).kick();
+  })
+}
+});
   
   
      client.on("message", async message => {
