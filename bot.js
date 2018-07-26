@@ -1363,12 +1363,11 @@ client.on('message', message => {
   if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
   var user = message.mentions.users.first();
   var reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("** Mention A Member To Kick !**");
+  if (message.mentions.users.size < 1) return message.reply("**__Mention__ A Member To Kick !**");
   if (!message.guild.member(user).kickable) return message.reply("**Can't Kick A Higher Role Than Me !**");
   message.channel.send(`**:white_check_mark: ${user.tag} Kicked Form The Server By : <@${message.author.id}> ! :airplane:** `)
-  guild.owner.send(`**تم تبنيد** :${user.tag}  
-**بواسطة** : <@${message.author.id}>`)
-  user.send(reason).then(()=>{
+  guild.owner.send(`**تم طرد** :${user.tag}  
+**بواسطة** : <@${message.author.id}>`).then(()=>{
 message.guild.member(user).kick();
   })
 }
