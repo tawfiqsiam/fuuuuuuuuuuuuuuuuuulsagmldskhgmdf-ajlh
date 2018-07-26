@@ -26,7 +26,23 @@ client.on('ready',  () => {
     console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
     console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
   });
+ client.on('ready', function(){
+    var ms = 60000 ;
+    var setGame = [,'+help','+invite','+help|+invite','+help','+invite','By Moha','+invite','+help','+help','+help|+invite','+help|+invite',];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/Dragon`);
+    }, ms);
  
+});
 
 client.on('message', message => {
     if (message.content === "+bot") {
