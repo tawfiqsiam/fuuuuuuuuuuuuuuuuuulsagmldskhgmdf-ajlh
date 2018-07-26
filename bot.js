@@ -1815,7 +1815,7 @@ client.on('message', message => {
   });
 
 client.on('message', message => {
-  var prefix = '$';
+  var prefix = '+';
 
   if (message.content.startsWith(prefix + "removerole")) {
     let clientbot = message.guild.me;
