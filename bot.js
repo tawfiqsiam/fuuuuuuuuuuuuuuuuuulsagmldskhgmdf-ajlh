@@ -16,6 +16,7 @@ const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
 var Canvas = require('canvas')
 var jimp = require('jimp')
+const config = require("./config.json")
 const pretty = require('pretty-ms');
 const prefix = "+";
 var guilds = {};
