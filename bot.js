@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js");RichEmbed
 const { Client, Util } = require('discord.js');
 const client = new Discord.Client();
 const dateFormat = require('dateformat');
