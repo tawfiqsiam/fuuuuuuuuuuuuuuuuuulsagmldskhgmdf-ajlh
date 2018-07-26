@@ -1678,7 +1678,7 @@ if(message.content.startsWith(prefix + 'move')) {
   var cmdrole = message.guild.roles.find("name", config.cmdrole)
      if (message.member.hasPermission("MOVE_MEMBERS")) {
 if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**I Don't Have `MOVE_MEMBERS` Permission**").then(msg => msg.delete(6000))
-            if (message.mentions.users.size === 0) { const move = new Discord.RichEmbed()
+            if (message.mentions.users.size === 0) { const emved = new Discord.RichEmbed()
                    .setColor("#fff")
                    .setTitle(" أمثله على الأوامر : ")
                    .setDescription(`
@@ -1686,7 +1686,7 @@ if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return mess
          **+move all**: لسحب جميع الاعضاء الى روم الصوتي الخاص بك`)
                    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
                
-                 message.channel.send(move)
+                 message.channel.send({ embed: embed });
             }
             if (message.member.voiceChannel != null) {
                    if (message.mentions.members.first().voiceChannel != null) {
@@ -1829,7 +1829,7 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
     let args = message.content.split(' ').slice(1).join(' ');
   let args2 = message.content.split(' ').slice(2).join(' ');
   if (message.mentions.users.size === 0) {
-    const remove1 = new Discord.RichEmbed()
+    const embed = new Discord.RichEmbed()
     .setColor("#fff")
     .setTitle(" أمثله على الأوامر : ")
     .setDescription(`
@@ -1840,7 +1840,7 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
     **+role humans User** : لاعطاء رتبة للأشخاص فقط`)
     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
-  message.channel.send(remove1)
+  message.channel.send({ embed: embed });
   } else {
     var mentioned = message.mentions.members.first().id;
     var mgm = message.guild.members.get(mentioned)
@@ -1862,7 +1862,7 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
       }
 
     } else {
-      const removerole = new Discord.RichEmbed()
+      const embed1 = new Discord.RichEmbed()
       .setColor("#fff")
       .setTitle(" أمثله على الأوامر : ")
       .setDescription(`
@@ -1873,7 +1873,7 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
       **+role humans User** : لاعطاء رتبة للأشخاص فقط`)
       .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
-    message.channel.send(removerole)    }
+    message.channel.send({ embed: embed1 });    }
   }
 }
 } else {
