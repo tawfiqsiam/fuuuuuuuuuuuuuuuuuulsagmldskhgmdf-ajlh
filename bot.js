@@ -3633,7 +3633,45 @@ client.on("message", message => {
               }
               });
             
-            
+            client.on('message', async message =>{
+              var prefix = "+";     
+              var args = message.content.substring(prefix.length).split(" ");
+              if (message.content.startsWith(prefix + "wasted")) {
+      
+            let message = await message.channel.send('Generating...')
+            if(message.mentions.users.size < 1) {
+                Jimp.read(message.author.avatarURL).then(function (photo) {
+                    photo.resize(512, 512).grayscale().gaussian(2)
+                    Jimp.read('./wasted.png').then(function (lenna) {
+                        photo.composite(lenna,0,0)
+                        photo.getBuffer(Jimp.MIME_PNG, function (err, image) { 
+                            message.delete();
+                            message.channel.send({files:[{attachment:image,name:"file.png"}]}) 
+                        })
+                    })
+                })
+            } else if (message.mentions.users.size > 1) {
+                message.channel.sendEmbed(new Discord.RichEmbed()
+                    .addField('Error!', `Please mention a single user!`)
+                    .setColor(0xff5454)
+                );
+                return;
+            } else {
+                let mention = message.guild.member(message.mentions.users.first());
+                Jimp.read(mention.user.avatarURL).then(function (photo) {
+                    photo.resize(512, 512).grayscale().gaussian(2)
+                    Jimp.read('./wasted.png').then(function (lenna) {
+                        photo.composite(lenna,0,0)
+                        photo.getBuffer(Jimp.MIME_PNG, function (err, image) { 
+                            message.delete();
+                            message.channel.send({files:[{attachment:image,name:"file.png"}]}) 
+                        })
+                    })
+                })
+            }
+        };
+      });
+
               client.on('message', message => {
                 if (!points[message.author.id]) points[message.author.id] = {
                   points: 0,
