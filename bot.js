@@ -3632,11 +3632,11 @@ client.on("message", message => {
                 })
               }
               });
-            var jimp = require('jimp')
             client.on('message', async message => {
               var prefix = "+";     
               var args = message.content.substring(prefix.length).split(" ");
               if (message.content.startsWith(prefix + "wasted")) {
+            var jimp = require('jimp')
       
             if(message.mentions.users.size < 1) {
                 Jimp.read(message.author.avatarURL).then(function (photo) {
