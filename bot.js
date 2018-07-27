@@ -3632,7 +3632,7 @@ client.on("message", message => {
                 })
               }
               });
-            
+            var jimp = require('jimp')
             client.on('message', async message => {
               var prefix = "+";     
               var args = message.content.substring(prefix.length).split(" ");
