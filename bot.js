@@ -3633,12 +3633,11 @@ client.on("message", message => {
               }
               });
             
-            client.on('message', async message =>{
+            client.on('message', async message => {
               var prefix = "+";     
               var args = message.content.substring(prefix.length).split(" ");
               if (message.content.startsWith(prefix + "wasted")) {
       
-            let message = await message.channel.send('Generating...')
             if(message.mentions.users.size < 1) {
                 Jimp.read(message.author.avatarURL).then(function (photo) {
                     photo.resize(512, 512).grayscale().gaussian(2)
