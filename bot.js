@@ -3067,8 +3067,8 @@ message.react("📬")
     if(msg.author.bot) return;
     if(msg.channel.type == 'dm') return;
     if(msg.content.startsWith(prefix + "deletecolors")) {
-      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
-      if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
+      if(!msg.member.hasPermission('ADMINISTRATOR')) return      msg.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+      if(!msg.guild.member(client.user).hasPermission("MANAGE_ROLES")) return msg.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
 
     msg.guild.roles.filter(msg => isNaN(msg)).forEach(dragon => dragon.delete())
     }
