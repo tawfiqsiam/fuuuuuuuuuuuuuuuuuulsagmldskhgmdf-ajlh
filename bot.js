@@ -1197,6 +1197,67 @@ client.on('message', message => {
 }
 });
 
+
+client.on('message' , async message => {
+  if(message.author.bot) return;
+  var prefix = "+";     
+  if (message.content.startsWith(prefix + "voice")) {
+  var guild = message.guild
+if(message.channel.type == 'dm') return;
+const embed = new Discord.RichEmbed() 
+    .setColor("RANDOM")
+    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+    .setAuthor("Voice Online", "https://images-ext-1.discordapp.net/external/vp2vj9m0ieU5J6SHg6ObIsGpTJyoZnGAebrd0_vi848/https/i.imgur.com/GnR2unD.png?width=455&height=455")
+        .setFooter(` العدد : ${guild.members.filter(member => member.voiceChannel).size}`)
+    .setDescription(`\n${guild.members.filter(member => member.voiceChannel).map(m => m.user.tag).join('\n')}`);
+  message.channel.sendEmbed(embed);
+}// لو تبي تغير الوقت اللي تنرسل فيه الرساله غير رقم 30 الى عدد الدقائق اللي تبيهه ..
+});
+
+client.on('message', message => {
+  if(message.content == '+menbans'){
+      message.guild.fetchBans().then(bans => {
+          bans.forEach(user => {
+             message.channel.send('\`#\` <@'+ user.id + '>');
+          });
+      });
+  }
+});
+  client.on('message', message => {
+    var prefix = "+";     
+
+    if(message.content.startsWith(prefix +"bans")) {
+       message.guild.fetchBans()
+       .then(bans => message.channel.send(`The ban count **${bans.size}** Person`))
+ .catch(console.error);
+}
+});
+
+
+client.on('message', async message => {
+  var prefix = "+";     
+  let messageArray = message.content.split(' ');
+  let args = messageArray.slice(1);
+  if(message.content.startsWith(prefix + "info-invite")) {
+    if(!args) return message.reply('**آرسل كود الدعوة مثال : ``SQe7wJa``**');
+    message.guild.fetchInvites().then(i => {
+      let inv = i.get(args[0]);
+      if(!inv) return message.reply(`**لم اقدر على ايجاد ${args}**`);
+      var iNv = new Discord.RichEmbed()
+      .setAuthor(message.author.username,message.author.avatarURL)
+      .setThumbnail(message.author.avatarURL)
+      .addField('صاحب الدعوة',inv.inviter,true)
+      .addField('روم الدعوة',inv.channel,true)
+      .addField('تاريخ انتهاء الدعوة',moment(inv.expiresAt).format('YYYY/M/DD:h'),true)
+      .addField('تم انشاء الدعوة',moment(inv.createdAt).format('YYYY/M/DD:h'),true)
+      .addField('مدة الدعوة',moment(inv.maxAge).format('DD **ساعة** h **يوم**'),true)
+      .addField('الاستخدامات',inv.uses || inv.maxUses,true)
+      .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+      message.channel.send(iNv);
+    });
+  }
+});
+
     client.on("message", message => {
 if (message.content === "+help-public") {
 message.react("✅")
@@ -1223,6 +1284,12 @@ message.react("😵")
   └─ أمر الايدي
 +id
   └─ أمر الايدي بشكل مميز
++menbans
+  └─ يمنشن الي متبندين بالسيرفر
++bans
+  └─ يعرض لك عدد المتبندين
++voice
+  └─ يعرض لك عدد اعضاء الي برومات الصوتية مع اسمائهم
 +roleperms
   └─ لمعرفة خصائص رتبتك او خصائص رتبة معينه عن طريق اسم الرتبة
 +mb
@@ -1258,6 +1325,8 @@ message.react("😵")
   └─ لارسال رابط السيرفر على الخاص
 +invites
   └─ يعرض لك كم جبت اعضاء لهذة السيرفر
++info-invite
+  └─ يعرض لك معلومات عن رابط دعوة
 +invite-codes
   └─ يرسل لك على الخاص جميع الروابط التي قمت بأنشائها لهذة السيرفر
 +top
@@ -1303,10 +1372,11 @@ client.on('message' , message => {
         var embed = new Discord.RichEmbed()
         .setThumbnail(message.author.avatarURl)
         .setColor("RANDOM")
-        .setTitle('**●Unban** !')
-        .addField('**●User Unban :** ', `${user}` , true)
-        .addField('**●By :**' ,       ` <@${message.author.id}> ` , true)
+        .setTitle('**Unban** !')
+        .addField('**User Unban :** ', `${user}` , true)
+        .addField('**By :**' ,       ` <@${message.author.id}> ` , true)
         .setAuthor(message.guild.name)
+       .setFooter('Requested by '+message.author.username, message.author.avatarURL)
         message.channel.sendEmbed(embed)
     }
   });
@@ -1343,7 +1413,8 @@ client.on('message', message => {
 
 message.channel.send(`**:white_check_mark: ${user.tag} Banned From The Server By : <@${message.author.id}> ! :airplane: **  `)
   
-guild.owner.send(`**تم تبنيد** :${user.tag}  
+guild.owner.send(`سيرفر : ${guild.name}
+**تم تبنيد** :${user.tag}  
 **بواسطة** : <@${message.author.id}>`)
 
 }
@@ -1366,7 +1437,8 @@ client.on('message', message => {
   if (message.mentions.users.size < 1) return message.reply("**__Mention__ A Member To Kick !**");
   if (!message.guild.member(user).kickable) return message.reply("**Can't Kick A Higher Role Than Me !**");
   message.channel.send(`**:white_check_mark: ${user.tag} Kicked Form The Server By : <@${message.author.id}> ! :airplane:** `)
-  guild.owner.send(`**تم طرد** :${user.tag}  
+  guild.owner.send(`سيرفر : ${guild.name}
+**تم طرد** :${user.tag}  
 **بواسطة** : <@${message.author.id}>`).then(()=>{
 message.guild.member(user).kick();
   })
@@ -2827,6 +2899,55 @@ client.on('message', message => {
        .setColor('#502faf').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``Colors Has Been Created``')});
       }
       });
+
+
+client.on('message',async message => {
+  if(message.content === '+unbanall') {
+    var user = message.mentions.users.first();
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**\`ADMINISTRATOR\`لا توجد لديك صلاحية `**');
+    if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+    const guild = message.guild;
+
+  message.guild.fetchBans().then(ba => {
+  ba.forEach(ns => {
+  message.guild.unban(ns);
+  var embed= new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor("Succes!", "https://images-ext-1.discordapp.net/external/vp2vj9m0ieU5J6SHg6ObIsGpTJyoZnGAebrd0_vi848/https/i.imgur.com/GnR2unD.png?width=455&height=455")
+        .setDescription(`**:white_check_mark: Has Been Unban For All**`)
+    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+  message.channel.send(embed);
+  guild.owner.send(`سيرفر : ${guild.name}
+  **تم فك الباند عن الجميع بواسطة** : <@${message.author.id}>`) 
+  });
+  });
+  }
+  });
+    
+
+  client.on("guildBanAdd", (guild, member) => {
+    client.setTimeout(() => {
+      guild.fetchAuditLogs({
+          limit: 1,
+          type: 22
+        })
+        .then(audit => {
+          let exec = audit.entries.map(a => a.executor.username);
+          try {
+            client.fetchUser(member.id).then(myUser => {
+              guild.owner.send(`سيرفر : ${guild.name}
+              **${myUser.username} تم تبنيد  
+             بواسطة : ${exec}**`).catch(e => {
+              console.log(e);
+            });
+            });
+          } catch (e) {
+            console.log(e);
+          }
+        });
+    }, 1000);
+  });
+
   
 client.on("message", message => {
   if (message.content === "+help-admin") {
@@ -2889,6 +3010,8 @@ message.react("📬")
   └─ لتعطي شخص باند مع السبب
 +unban
   └─ لفك الباند عند شخص محدد 
++unbanall
+  └─ لفك الباند عن الجميع 
 +kick
   └─ لتعطي شخص كيك مع السبب   
 +clear
