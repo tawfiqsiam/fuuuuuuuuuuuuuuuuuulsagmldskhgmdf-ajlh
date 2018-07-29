@@ -1243,7 +1243,7 @@ client.on('message', async message => {
     message.guild.fetchInvites().then(i => {
       let inv = i.get(args[0]);
       if(!inv) return message.reply(`**لم اقدر على ايجاد ${args}**`);
-      var iNv = new Discord.RichEmbed()
+      var embed = new Discord.RichEmbed()
       .setAuthor(message.author.username,message.author.avatarURL)
       .setThumbnail(message.author.avatarURL)
       .addField('صاحب الدعوة',inv.inviter,true)
@@ -1253,7 +1253,7 @@ client.on('message', async message => {
       .addField('مدة الدعوة',moment(inv.maxAge).format('DD **ساعة** h **يوم**'),true)
       .addField('الاستخدامات',inv.uses || inv.maxUses,true)
       .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-      message.channel.send(iNv);
+      message.channel.send({ embed: embed });
     });
   }
 });
@@ -2916,7 +2916,7 @@ client.on('message',async message => {
         .setAuthor("Succes!", "https://images-ext-1.discordapp.net/external/vp2vj9m0ieU5J6SHg6ObIsGpTJyoZnGAebrd0_vi848/https/i.imgur.com/GnR2unD.png?width=455&height=455")
         .setDescription(`**:white_check_mark: Has Been Unban For All**`)
     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-  message.channel.send(embed);
+  message.channel.send({ embed: embed });
   guild.owner.send(`سيرفر : ${guild.name}
   **تم فك الباند عن الجميع بواسطة** : <@${message.author.id}>`) 
   });
