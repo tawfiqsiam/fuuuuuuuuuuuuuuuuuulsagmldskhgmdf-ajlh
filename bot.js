@@ -23,7 +23,7 @@ var guilds = {};
 
 
 client.on('ready',  () => {
-    console.log('تم تشغيل :dragon  ');
+    console.log('تم تشغيل : KingX ');
     console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
     console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
     console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
@@ -31,7 +31,7 @@ client.on('ready',  () => {
 client.on('ready', async () => {
     console.log('I am ready!');
 
-    client.user.setPresence({ game: { name: '+help | +invite', type: 2 } });
+    client.user.setPresence({ game: { name: '+help | Starr, type: 2 } });
 });
 
 
@@ -44,22 +44,22 @@ client.on('message', message => {
     const days = millis / 1000 / 60 / 60 / 24;
     let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
     var embed  = new Discord.RichEmbed()
-    .setAuthor("[ Dragon Bot ]", " https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
-    .addField("**[ Dragon Prefix] :**","**[ + ]**" , true)
-    .addField("** [ Dragon ID ] **", "**"+"459725014237970492"+"**",true)
-    .addField("** [ Dragon ] **","** دراجون**")
-    .addField("**[ Bot Developer ]**","<@!402043862480322562> [! HP , ء Móha,$ 55₅ , .#5555]")
+    .setAuthor("[ KingX Bot ]", " https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
+    .addField("**[ KngX Prefix] :**","**[ + ]**" , true)
+    .addField("** [ KingX ID ] **", "**"+"509747381382938625"+"**",true)
+    .addField("** [ KingX ] **","** الملكX**")
+    .addField("**[ Bot Developer ]**","<@479645782119809024> [Star#5087]")
     .addField("**[ Servers ]**" , "**"+`${client.guilds.size}`+" Server**",true)
     .addField("**[ Users ] **",`** ${client.users.size} User**`)
     .setThumbnail(" https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
     .setColor("ffffff")
-    .setFooter(`+help to see all Dragon commands `, ' https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455')
+    .setFooter(`+help to see all KingX commands `, ' https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455')
     message.channel.sendEmbed(embed)
     }
     });
 
 client.on("guildDelete", guild => {
-    console.log(` Dragon Left From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
+    console.log(`KingX Left From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
    
 var g= guild.members.size
 var i= guild.iconURL
@@ -67,8 +67,8 @@ var i= guild.iconURL
 const embed = new Discord.RichEmbed()
   
                    .setColor("RANDOM")
-                .setFooter(` ©  Dragon™ `)
-                .setTitle(" Dragon Left Server !")
+                .setFooter(` ©  KingX™ `)
+                .setTitle(" KingX Left Server !")
                 .addField("**Guild Name:**", guild.name )
                  .addField("**Owner:**", guild.owner.user.username )
                  .addField("**Owner id:**", guild.owner.user.id )
@@ -79,7 +79,7 @@ client.channels.get("427613133826162698").send({ embed: embed });
 
 
 client.on("guildCreate", guild => {
-console.log(` Dragon Added From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
+console.log(`KingX Added From Server -- = ${guild.name} = -- , Server Owner -- = ${guild.owner.user.username} = --`)
 
 var g= guild.members.size
 var i= guild.iconURL
@@ -87,8 +87,8 @@ var i= guild.iconURL
 const embed = new Discord.RichEmbed()
   
                    .setColor("RANDOM")
-                .setFooter(` ©  Dragon™ `)
-                .setTitle(" Dragon Added To Server !")
+                .setFooter(` ©  KingX™ `)
+                .setTitle(" KingX Added To Server !")
                 .addField("**Guild Name:**", guild.name )
                  .addField("**Owner:**", guild.owner.user.username )
                  .addField("**MEMBER COUNT:**", g )
@@ -100,8 +100,8 @@ client.channels.get("427613133826162698").send({ embed: embed });
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('+moha')){
-if (message.author.id !== '402043862480322562') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.content.startsWith('+Star1')){
+if (message.author.id !== '479645782119809024') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
@@ -149,10 +149,10 @@ client.on('message', message => {
 client.on('message' , message => {
 
     if (message.author.bot) return;
-      if(message.content.startsWith( "+invite")) {
+      if(message.content.startsWith( "+invite123")) {
    
   const embed = new Discord.RichEmbed()
-    .setFooter(`©  Dragon™ `)
+    .setFooter(`©  KingX ™ `)
        .setColor(0xd3d0c4)
   .setAuthor(message.author.username, message.author.avatarURL)
   .setTitle(':arrow_right: Click Here Invite Link اضغط هنا')
@@ -170,15 +170,7 @@ client.on("message", message => {
    const embed = new Discord.RichEmbed() 
        .setColor("#ffff00")
        .setDescription(`
- 
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
+ KingX BOT
 ══════════ஜ۩۞۩ஜ════════════ 
        اوامر البوت
 
@@ -199,10 +191,6 @@ client.on("message", message => {
 
  ══════════ஜ۩۞۩ஜ════════════
 
- **:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
- 🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
- :exclamation:  **| لدعوة البوت ** : +invite
- :exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
   `)
   .setFooter('Requested by '+message.author.username, message.author.avatarURL)
      
@@ -1165,7 +1153,7 @@ client.on('message', message => {
 
   var roleCreated = role.createdAt.toString().split(' ');
   const embed = new Discord.RichEmbed()
-  .setTitle("Dragon")
+  .setTitle("KingX ")
   .setAuthor( '', '' )
   .setColor(0xFF8DFD)
   .setDescription(``)
@@ -1254,14 +1242,6 @@ message.react("😵")
  const embed = new Discord.RichEmbed() 
      .setColor("#fff")
      .setDescription(`
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
      
  ══════════ஜ۩۞۩ஜ════════════
  **       اوامر عامة    
@@ -1326,12 +1306,7 @@ message.react("😵")
   └─ لي عرض صوره السيرفر**
 
 ══════════ஜ۩۞۩ஜ════════════
-
-**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
-🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
-:exclamation:  **| لدعوة البوت ** : +invite
-:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
- `)
+`)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
  
   
@@ -1596,7 +1571,7 @@ if (message.member.hasPermission("CHANGE_NICKNAME")) {
           .setTitle(" أمثله على الأوامر : ")
           .setDescription(`
           **+nick** : لحذف اسمك في السيرفر
-          **+nickname @Moha Someone** : لتغيير اسم شخص ما في السيرفر`)
+          **+nickname @Star Someone** : لتغيير اسم شخص ما في السيرفر`)
           .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
         message.channel.send({ embed: embed }); 
@@ -1743,7 +1718,7 @@ if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return mess
                    .setColor("#fff")
                    .setTitle(" أمثله على الأوامر : ")
                    .setDescription(`
-         **+move @Moha**: لسحب شخص ما الى الروم الصوتي الخاص بك
+         **+move @ Star **: لسحب شخص ما الى الروم الصوتي الخاص بك
          **+move all**: لسحب جميع الاعضاء الى روم الصوتي الخاص بك`)
                    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
                
@@ -1894,8 +1869,8 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
     .setColor("#fff")
     .setTitle(" أمثله على الأوامر : ")
     .setDescription(`
-    **+role @Moha Mod** : لأعطاء رتبة لشخص 
-    **+remove @Moha Mod** : لأزاله رتبة من شخص
+    **+role @Star Mod** : لأعطاء رتبة لشخص 
+    **+remove @Star Mod** : لأزاله رتبة من شخص
     **+role all Guest** : لاعطاء رتبة للجميع
     **+role bots System** : لاعطاء رتبة لجميع البوتات
     **+role humans User** : لاعطاء رتبة للأشخاص فقط`)
@@ -1927,8 +1902,8 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
       .setColor("#fff")
       .setTitle(" أمثله على الأوامر : ")
       .setDescription(`
-      **+role @Moha Mod** : لأعطاء رتبة لشخص 
-      **+remove @Moha Mod** : لأزاله رتبة من شخص
+      **+role @Star Mod** : لأعطاء رتبة لشخص 
+      **+remove @Star Mod** : لأزاله رتبة من شخص
       **+role all Guest** : لاعطاء رتبة للجميع
       **+role bots System** : لاعطاء رتبة لجميع البوتات
       **+role humans User** : لاعطاء رتبة للأشخاص فقط`)
@@ -2945,15 +2920,6 @@ message.react("📬")
    const embed = new Discord.RichEmbed() 
  .setColor("#ffff00")
  .setDescription(`
- 
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
 
   ══════════ஜ۩۞۩ஜ════════════ 
 **       اوامر ادارية    
@@ -3034,10 +3000,6 @@ message.react("📬")
   
  ══════════ஜ۩۞۩ஜ════════════  
  
- **:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
- 🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
- :exclamation:  **| لدعوة البوت ** : +invite
- :exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
   `)
   .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
@@ -3059,7 +3021,7 @@ message.react("📬")
       if(!msg.member.hasPermission('ADMINISTRATOR')) return      msg.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
       if(!msg.guild.member(client.user).hasPermission("MANAGE_ROLES")) return msg.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
 
-    msg.guild.roles.filter(msg => isNaN(msg)).forEach(dragon => dragon.delete())
+    msg.guild.roles.filter(msg => isNaN(msg)).forEach(KingX => KingX.delete())
     }
     });
       
@@ -3103,7 +3065,7 @@ ${args}
         if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
       if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
         let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-        let copy = "Dragon";
+        let copy = " KingX ";
         let request = `Requested By ${message.author.username}`;
         if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
         msg.react('✅')
@@ -3984,7 +3946,7 @@ var prefix = "+";
         var args = message.content.split(" ").slice(1);
     if(message.content.startsWith(prefix + 'لو خيروك')) {
          var lo = new Discord.RichEmbed()
-     .setFooter(`©  Dragon™ `)
+     .setFooter(`©  KingX ™ `)
 .setImage(viper[Math.floor(Math.random() * viper.length)])
 message.channel.sendEmbed(lo);
     }
@@ -4014,7 +3976,7 @@ const secreT = [
     .setColor('RANDOM')
    
      .setThumbnail(message.author.avatarURL) 
-     .setFooter(`©  Dragon™ `)
+     .setFooter(`©  KingX ™ `)
    .addField('لعبه خواطر' ,
     `${secreT[Math.floor(Math.random() * secreT.length)]}`)
     message.channel.sendEmbed(embed);
@@ -4060,7 +4022,7 @@ client.on('message', message => {
  var embed = new Discord.RichEmbed()
  .setColor('RANDOM')
   .setThumbnail(message.author.avatarURL) 
-     .setFooter(`©  Dragon™ `)
+     .setFooter(`©  KingX ™ `)
 .addField('لعبه كت تويت' ,
  `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
  message.channel.sendEmbed(embed);
@@ -4076,7 +4038,7 @@ client.on('message', message => {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
   var embed = new Discord.RichEmbed()
   .setColor(0xd3d0c4)
-     .setFooter(`©  Dragon™ `)
+     .setFooter(`©  KingX ™ `)
    .setThumbnail(message.author.avatarURL) 
  .addField('حب' ,
   `${Love[Math.floor(Math.random() * Love.length)]}`)
@@ -4091,7 +4053,8 @@ var prefix = "+";
         var args = message.content.split(" ").slice(1);
     if(message.content.startsWith(prefix + 'animal')) {
          var cat = new Discord.RichEmbed()
-     .setFooter(`©  Dragon™ `)
+     .setFooter(`©  KingX 
+™ `)
 .setImage(cats[Math.floor(Math.random() * cats.length)])
 message.channel.sendEmbed(cat);
     }
@@ -4164,7 +4127,8 @@ if (message.content.startsWith('+صراحه')) {
  var client= new Discord.RichEmbed()
  .setTitle("لعبة صراحة ..")
  .setColor('RANDOM')
-     .setFooter(`©  Dragon™ `)
+     .setFooter(`©  KingX 
+™ `)
  .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
  .setImage("https://cdn.discordapp.com/attachments/371269161470525444/384103927060234242/125.png")
                  .setTimestamp()
@@ -4257,15 +4221,6 @@ client.on("message", message => {
    const embed = new Discord.RichEmbed() 
        .setColor("#fff")
       .setDescription(`
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
-      
 ══════════ஜ۩۞۩ஜ════════════  
  **       أوامر الألعاب
 
@@ -4302,11 +4257,7 @@ client.on("message", message => {
  
 ══════════ஜ۩۞۩ஜ════════════ 
 
-**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
-🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
-:exclamation:  **| لدعوة البوت ** : +invite
-:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
- `)
+`)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
   
  
@@ -4334,14 +4285,6 @@ client.on("message", message => {
    const embed = new Discord.RichEmbed() 
        .setColor("#fff")
       .setDescription(`
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
       
 ══════════ஜ۩۞۩ஜ════════════  
  **       أوامر القرأن الكريم
@@ -4368,12 +4311,7 @@ client.on("message", message => {
   └─ يوقف آية الكرسي**
  
 ══════════ஜ۩۞۩ஜ════════════ 
-
-**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
-🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
-:exclamation:  **| لدعوة البوت ** : +invite
-:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
- `)
+`)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
   
  
@@ -4485,7 +4423,7 @@ client.on("message", message => {
               dispatcher.on('end', () => {
                 voiceChannel.leave();
               });
-            });
+            });	
         }
         
         if (message.content.startsWith('+yasin-stop')) {
@@ -4530,5 +4468,3 @@ client.on("message", message => {
       
       });
             client.login(process.env.BOT_TOKEN);
-
-  
