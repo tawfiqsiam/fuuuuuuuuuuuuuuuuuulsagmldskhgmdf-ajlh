@@ -23,7 +23,7 @@ var guilds = {};
 
 
 client.on('ready',  () => {
-  client.user.setPresence({ game: { name: '+help | +invite', type: 2 } });
+  client.user.setPresence({ game: { name: 'Energy Server', type: 2 } });
 });
 
 
