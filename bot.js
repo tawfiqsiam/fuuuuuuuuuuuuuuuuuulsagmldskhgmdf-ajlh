@@ -23,7 +23,7 @@ var guilds = {};
 
 
 client.on('ready',  () => {
-    console.log('تم تشغيل :dragon  ');
+    console.log('تم تشغيل :KingX  ');
     console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
     console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
     console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
@@ -31,7 +31,7 @@ client.on('ready',  () => {
 client.on('ready', async () => {
     console.log('I am ready!');
 
-    client.user.setPresence({ game: { name: '+help | +invite', type: 2 } });
+    client.user.setPresence({ game: { name: '+help | KingX', type: 2 } });
 });
 
 
@@ -44,11 +44,10 @@ client.on('message', message => {
     const days = millis / 1000 / 60 / 60 / 24;
     let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
     var embed  = new Discord.RichEmbed()
-    .setAuthor("[ Dragon Bot ]", " https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
-    .addField("**[ Dragon Prefix] :**","**[ + ]**" , true)
-    .addField("** [ Dragon ID ] **", "**"+"459725014237970492"+"**",true)
-    .addField("** [ Dragon ] **","** دراجون**")
-    .addField("**[ Bot Developer ]**","<@!402043862480322562> [! HP , ء Móha,$ 55₅ , .#5555]")
+    .setAuthor("[ KingX Bot ]", " https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
+    .addField("**[ KingX Prefix] :**","**[ + ]**" , true)
+    .addField("** [ KingX ID ] **", "**"+"459725014237970492"+"**",true)
+    .addField("** [ KingX ] **")
     .addField("**[ Servers ]**" , "**"+`${client.guilds.size}`+" Server**",true)
     .addField("**[ Users ] **",`** ${client.users.size} User**`)
     .setThumbnail(" https://images-ext-2.discordapp.net/external/ahNXTY5REo9rE5-6oa5XGyzSrJis3qbk7eBUv1sEiYI/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/459725014237970492/558a210e07b9ae2504e427a4c7c6d297.png?width=455&height=455")
@@ -67,7 +66,7 @@ var i= guild.iconURL
 const embed = new Discord.RichEmbed()
   
                    .setColor("RANDOM")
-                .setFooter(` ©  Dragon™ `)
+                .setFooter(` ©  KingX™ `)
                 .setTitle(" Dragon Left Server !")
                 .addField("**Guild Name:**", guild.name )
                  .addField("**Owner:**", guild.owner.user.username )
@@ -87,8 +86,8 @@ var i= guild.iconURL
 const embed = new Discord.RichEmbed()
   
                    .setColor("RANDOM")
-                .setFooter(` ©  Dragon™ `)
-                .setTitle(" Dragon Added To Server !")
+                .setFooter(` ©  KingX™ `)
+                .setTitle(" KingX Added To Server !")
                 .addField("**Guild Name:**", guild.name )
                  .addField("**Owner:**", guild.owner.user.username )
                  .addField("**MEMBER COUNT:**", g )
@@ -100,7 +99,7 @@ client.channels.get("427613133826162698").send({ embed: embed });
 client.on('message', message => {
     if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
-if (message.content.startsWith('+moha')){
+if (message.content.startsWith('+star')){
 if (message.author.id !== '402043862480322562') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
@@ -149,10 +148,10 @@ client.on('message', message => {
 client.on('message' , message => {
 
     if (message.author.bot) return;
-      if(message.content.startsWith( "+invite")) {
+      if(message.content.startsWith( "+invite123")) {
    
   const embed = new Discord.RichEmbed()
-    .setFooter(`©  Dragon™ `)
+    .setFooter(`©  KingX™ `)
        .setColor(0xd3d0c4)
   .setAuthor(message.author.username, message.author.avatarURL)
   .setTitle(':arrow_right: Click Here Invite Link اضغط هنا')
@@ -170,15 +169,7 @@ client.on("message", message => {
    const embed = new Discord.RichEmbed() 
        .setColor("#ffff00")
        .setDescription(`
- 
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
+
 ══════════ஜ۩۞۩ஜ════════════ 
        اوامر البوت
 
@@ -199,10 +190,7 @@ client.on("message", message => {
 
  ══════════ஜ۩۞۩ஜ════════════
 
- **:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
- 🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
- :exclamation:  **| لدعوة البوت ** : +invite
- :exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+
   `)
   .setFooter('Requested by '+message.author.username, message.author.avatarURL)
      
@@ -1254,14 +1242,7 @@ message.react("😵")
  const embed = new Discord.RichEmbed() 
      .setColor("#fff")
      .setDescription(`
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
+
      
  ══════════ஜ۩۞۩ஜ════════════
  **       اوامر عامة    
@@ -1327,10 +1308,7 @@ message.react("😵")
 
 ══════════ஜ۩۞۩ஜ════════════
 
-**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
-🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
-:exclamation:  **| لدعوة البوت ** : +invite
-:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+
  `)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
  
@@ -1596,7 +1574,7 @@ if (message.member.hasPermission("CHANGE_NICKNAME")) {
           .setTitle(" أمثله على الأوامر : ")
           .setDescription(`
           **+nick** : لحذف اسمك في السيرفر
-          **+nickname @Moha Someone** : لتغيير اسم شخص ما في السيرفر`)
+          **+nickname @KingX Someone** : لتغيير اسم شخص ما في السيرفر`)
           .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
         message.channel.send({ embed: embed }); 
@@ -1743,7 +1721,7 @@ if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return mess
                    .setColor("#fff")
                    .setTitle(" أمثله على الأوامر : ")
                    .setDescription(`
-         **+move @Moha**: لسحب شخص ما الى الروم الصوتي الخاص بك
+         **+move @KingX**: لسحب شخص ما الى الروم الصوتي الخاص بك
          **+move all**: لسحب جميع الاعضاء الى روم الصوتي الخاص بك`)
                    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
                
@@ -1894,8 +1872,8 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
     .setColor("#fff")
     .setTitle(" أمثله على الأوامر : ")
     .setDescription(`
-    **+role @Moha Mod** : لأعطاء رتبة لشخص 
-    **+remove @Moha Mod** : لأزاله رتبة من شخص
+    **+role @KingX Mod** : لأعطاء رتبة لشخص 
+    **+remove @KingX Mod** : لأزاله رتبة من شخص
     **+role all Guest** : لاعطاء رتبة للجميع
     **+role bots System** : لاعطاء رتبة لجميع البوتات
     **+role humans User** : لاعطاء رتبة للأشخاص فقط`)
@@ -1927,8 +1905,8 @@ if (clientbot.hasPermission("MANAGE_ROLES")) {
       .setColor("#fff")
       .setTitle(" أمثله على الأوامر : ")
       .setDescription(`
-      **+role @Moha Mod** : لأعطاء رتبة لشخص 
-      **+remove @Moha Mod** : لأزاله رتبة من شخص
+      **+role @KingX Mod** : لأعطاء رتبة لشخص 
+      **+remove @KingX Mod** : لأزاله رتبة من شخص
       **+role all Guest** : لاعطاء رتبة للجميع
       **+role bots System** : لاعطاء رتبة لجميع البوتات
       **+role humans User** : لاعطاء رتبة للأشخاص فقط`)
@@ -2946,14 +2924,7 @@ message.react("📬")
  .setColor("#ffff00")
  .setDescription(`
  
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
+
 
   ══════════ஜ۩۞۩ஜ════════════ 
 **       اوامر ادارية    
@@ -3034,10 +3005,7 @@ message.react("📬")
   
  ══════════ஜ۩۞۩ஜ════════════  
  
- **:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
- 🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
- :exclamation:  **| لدعوة البوت ** : +invite
- :exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+ 
   `)
   .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
@@ -3628,14 +3596,7 @@ client.on("message", message => {
        .setColor("#fff")
       .setDescription(`
 
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
+
       
 ══════════ஜ۩۞۩ஜ════════════  
  **      اوامر الاغاني   
@@ -3657,10 +3618,7 @@ client.on("message", message => {
 
 ══════════ஜ۩۞۩ஜ════════════ 
 
-**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
-🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
-:exclamation:  **| لدعوة البوت ** : +invite
-:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+
  `)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
   
@@ -4257,14 +4215,6 @@ client.on("message", message => {
    const embed = new Discord.RichEmbed() 
        .setColor("#fff")
       .setDescription(`
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
       
 ══════════ஜ۩۞۩ஜ════════════  
  **       أوامر الألعاب
@@ -4302,10 +4252,7 @@ client.on("message", message => {
  
 ══════════ஜ۩۞۩ஜ════════════ 
 
-**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
-🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
-:exclamation:  **| لدعوة البوت ** : +invite
-:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
+
  `)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
   
@@ -4334,14 +4281,7 @@ client.on("message", message => {
    const embed = new Discord.RichEmbed() 
        .setColor("#fff")
       .setDescription(`
-╭━━━╮╱╱╱╱╱╱╱╱╱╱╱╱╱╭━━╮╱╱╱╭╮
-╰╮╭╮┃╱╱╱╱╱╱╱╱╱╱╱╱╱┃╭╮┃╱╱╭╯╰╮
-╱┃┃┃┣━┳━━┳━━┳━━┳━╮┃╰╯╰┳━┻╮╭╯
-╱┃┃┃┃╭┫╭╮┃╭╮┃╭╮┃╭╮┫╭━╮┃╭╮┃┃
-╭╯╰╯┃┃┃╭╮┃╰╯┃╰╯┃┃┃┃╰━╯┃╰╯┃╰╮
-╰━━━┻╯╰╯╰┻━╮┣━━┻╯╰┻━━━┻━━┻━╯
-╱╱╱╱╱╱╱╱╱╭━╯┃
-╱╱╱╱╱╱╱╱╱╰━━╯
+
       
 ══════════ஜ۩۞۩ஜ════════════  
  **       أوامر القرأن الكريم
@@ -4369,10 +4309,6 @@ client.on("message", message => {
  
 ══════════ஜ۩۞۩ஜ════════════ 
 
-**:link: | الموقع الخاص بالبوت :** http://darknessxd.tk/WebSite/index.html
-🔗 **| دعوة البوت** : https://discordapp.com/oauth2/authorize?client_id=459725014237970492&scope=bot&permissions=2146958583
-:exclamation:  **| لدعوة البوت ** : +invite
-:exclamation:  **| لأرسال اقتراح لصاحب البوت** : +sug
  `)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
   
