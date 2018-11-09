@@ -180,7 +180,7 @@ admin commands
   └─ **+help-admin**
  
 Games (not working for now )
-  └─**+help-games**
+Language problem
 
 Music commands
   └─**+help-music**
@@ -189,7 +189,12 @@ Music commands
 
  ══════════ஜ۩۞۩ஜ════════════
 
-
+If you feel like asking anything join our server support 
+Link:
+https://discord.gg/JvJmkpV
+And To invite the bot to your server
+Link:
+https://discordapp.com/oauth2/authorize?client_id=510324190478598155&scope=bot
   `)
   .setFooter('Requested by '+message.author.username, message.author.avatarURL)
      
