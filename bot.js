@@ -1198,7 +1198,7 @@ const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
     .setAuthor("Voice Online", "https://www.google.ps/url?sa=i&source=imgres&cd=&cad=rja&uact=8&ved=2ahUKEwi4k7HOvcbeAhUQZFAKHb9ODewQjRx6BAgBEAU&url=https%3A%2F%2Fwww.youtube.com%2Fchannel%2FUCYuQXb3sVo_oLfEXpeIGM1Q&psig=AOvVaw2Tl0vtU_28-tWo_0m8uE_v&ust=1541824397734123")
-        .setFooter(` العدد : ${guild.members.filter(member => member.voiceChannel).size}`)
+        .setFooter(` Count : ${guild.members.filter(member => member.voiceChannel).size}`)
     .setDescription(`\n${guild.members.filter(member => member.voiceChannel).map(m => m.user.tag).join('\n')}`);
   message.channel.sendEmbed(embed);
 }// لو تبي تغير الوقت اللي تنرسل فيه الرساله غير رقم 30 الى عدد الدقائق اللي تبيهه ..
@@ -1229,19 +1229,19 @@ client.on('message', async message => {
   let messageArray = message.content.split(' ');
   let args = messageArray.slice(1);
   if(message.content.startsWith(prefix + "info-invite")) {
-    if(!args) return message.reply('**آرسل كود الدعوة مثال : ``SQe7wJa``**');
+    if(!args) return message.reply('**Send invite code like : ``SQe7wJa``**');
     message.guild.fetchInvites().then(i => {
       let inv = i.get(args[0]);
-      if(!inv) return message.reply(`**لم اقدر على ايجاد ${args}**`);
+      if(!inv) return message.reply(`**I couldn't find it ${args}**`);
       const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username,message.author.avatarURL)
       .setThumbnail(message.author.avatarURL)
-      .addField('صاحب الدعوة',inv.inviter,true)
-      .addField('روم الدعوة',inv.channel,true)
-      .addField('تاريخ انتهاء الدعوة',moment(inv.expiresAt).format('YYYY/M/DD:h'),true)
-      .addField('تم انشاء الدعوة',moment(inv.createdAt).format('YYYY/M/DD:h'),true)
-      .addField('مدة الدعوة',moment(inv.maxAge).format('DD **ساعة** h **يوم**'),true)
-      .addField('الاستخدامات',inv.uses || inv.maxUses,true)
+      .addField('Inviter',inv.inviter,true)
+      .addField('Invite channel',inv.channel,true)
+      .addField('expires at',moment(inv.expiresAt).format('YYYY/M/DD:h'),true)
+      .addField('created at',moment(inv.createdAt).format('YYYY/M/DD:h'),true)
+      .addField('Invite max age',moment(inv.maxAge).format('DD **ساعة** h **يوم**'),true)
+      .addField('Invite max uses',inv.uses || inv.maxUses,true)
       .setFooter('Requested by '+message.author.username, message.author.avatarURL)
       message.channel.sendEmbed(embed);
     });
@@ -1260,11 +1260,11 @@ message.react("😵")
  ══════════ஜ۩۞۩ஜ════════════
  **       اوامر عامة    
 +bot
-  └─ يعرض لك معلومات عن البوت
+  └─ Some Info about the bot 
 +server
-  └─ يعرض لك معلومات السيرفر
+  └─ Some Info about the server
 +user 
-  └─ أمر الايدي
+  └─  
 +id
   └─ أمر الايدي بشكل مميز
 +menbans
