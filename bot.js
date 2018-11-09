@@ -1264,63 +1264,68 @@ message.react("😵")
 +server
   └─ Some Info about the server
 +user 
-  └─  
+  └─ Some info about Your ID
 +id
-  └─ أمر الايدي بشكل مميز
+  └─ Some info about you in good looking way
 +menbans
-  └─ يمنشن الي متبندين بالسيرفر
+  └─ The bot will mention all banned members 
 +bans
-  └─ يعرض لك عدد المتبندين
+  └─ The bot will show you how many banned on this server
 +voice
-  └─ يعرض لك عدد اعضاء الي برومات الصوتية مع اسمائهم
+  └─ The bot will ahow you how many in the voice calls with there names
 +roleperms
-  └─ لمعرفة خصائص رتبتك او خصائص رتبة معينه عن طريق اسم الرتبة
+  └─ Yo get some info about some role
 +mb
-  └─ لمعرفة حالة الاعضاء 
+  └─ To get members Status  
 +member
-  └─ عدد وحالة اعضاء السيرفر 
+  └─ Members count  
 +report
-  └─ للابلاغ عن شخص
-      └─ملاحظة: يجب انشاء روم بأسم report لتلقي الابلاغات
+  └─ To report Sommeone
+      └─ You Have to create a channel called ( report ) 
 +report-owner
-  └─ لأرسال ابلاغ لصاحب السيرفر 
+  └─ To send a private report to the server owner
 +date
-  └─ لمعرفه التاريخ
+  └─ Disabled  
 +dt
-  └─ لمعرفة التاريخ والوقت لدولة مصر والسعودية والامارات  
+  └disabled  
 +ping
-  └─ لمعرفه سرعه البوت
+  └─ To get the connection speed
 +emojis
-  └─ يعرض لك ايموجيات حقت السيرفر
+  └─  The bot will show you all the emojis in the server
 +rooms
-  └─ لعرض عدد واسماء الرومات
+  └─ The bot will show you server channels count with there names
 +roles
-  └─ لعرض اسماءالرتب
+  └─ The bit eill show you all the roles 
 +channel
-  └─ يعرض لك معلومات عن الروم
+  └─ The bot will give you some info about any channel 
 +inforole
-  └─ يعرض لك معلومات عن رتبة
+  └─ The bot will show you some info about any role
 +embed
-  └─ خاصيه غرد لكن بغير طريقه
+  └─ The bot will repeat what you said with embed 
 +say
-  └─ لي يكرر الكلام الذي تقوله
-رابط
-  └─ لارسال رابط السيرفر على الخاص
+  └─ The bot will repeat what you said 
+Link
+  └─ Just say (link) to get an invite like on your dms
 +invites
-  └─ يعرض لك كم جبت اعضاء لهذة السيرفر
+  └─ The bot will show you how mamy members you have invited
 +info-invite
-  └─ يعرض لك معلومات عن رابط دعوة
+  └─ The bot will show you some info about any invite code
 +invite-codes
-  └─ يرسل لك على الخاص جميع الروابط التي قمت بأنشائها لهذة السيرفر
+  └─ The bot will dm you all of your invite codes
 +top
-  └─ يعرض لك جميع روابط دعوات التي تم انشائها مع عدد الاشخاص الي دخلو من الرابط
+  └─ Disabled 
 +avatar
-  └─ لي عرض صورتك او صوره اي شخص
+  └─ To show you your avatar or someone else 
 +image
-  └─ لي عرض صوره السيرفر**
+  └─ To show you server avatar*
 
 ══════════ஜ۩۞۩ஜ════════════
-
+If you feel like asking anything join our server support 
+Link:
+https://discord.gg/JvJmkpV
+And To invite the bot to your server
+Link:
+https://discordapp.com/oauth2/authorize?client_id=510324190478598155&scope=bot
 
  `)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
@@ -2940,85 +2945,88 @@ message.react("📬")
 
 
   ══════════ஜ۩۞۩ஜ════════════ 
-**       اوامر ادارية    
+**       Admins Commands
 +bc
-  └─ للبرودكاست بأمبد
+  └─ Send a DM TO EVERYONE on the server with embed
 +allbc 
-  └─ للبرودكاست بدون أمبد
+  └─ Send a dm to everyone on the server without embed 
 +onlinebc 
-  └─ لأرسال برودكاست للاونلاين فقط
+  └─ Send a dm to online members on the server 
 +rolebc 
-  └─ لأرسال برودكاست لرتبة معينه
-+ownerbc 
-  └─ لأرسال برودكاست لأونر السيرفر
+  └─ Send a dm to all of the members in anyrole
 +nick
-  └─ لحذف اسمك
+  └─ To clear your nick name
 +nickname
-  └─ لتغيير اسم شخص ما
+  └─ To change your nick name   
 +muteall 
-  └─ لقفل الشات
+  └─ To close the text channel 
 +unmuteall
-  └─ لفتح الشات
+  └─ To open the Text channel
 +hidechannel 
-  └─ لأخفاء الشات
+  └─ To hide text channel
 +showchannel
-  └─ لأظهار الشات الشات  
+  └─ To show text channel  
 +mute
-  └─ لاعطاء ميوت لشخص 
+  └─ To Give a textmute 
 +mutevoice
-  └─ لاعطاء ميوت صوتي 
+  └─ To give a voice mute
 +unmutevoice
-  └─ لفك ميوت صوتي
+  └─ To remove the voice mute
 +deafen
-  └─ لأعطاء ديفن 
+  └─ To deafen some memeber 
 +undeafen 
-  └─ لفك الديفن
+  └─ To remove the deafen from member
 +unmute 
-  └─ لفك الميوت
+  └─ To remove the text mute 
 +createcolors 
-  └─ لعمل 137 لون مرتب 
+  └─ To create 137 colors
 +deletecolors
-  └─ لمسح جميع الألوان بالسيرفر
+  └─ To delete all of the colors
 +ban
-  └─ لتعطي شخص باند مع السبب
+  └─ To ban someone with the reason
 +unban
-  └─ لفك الباند عند شخص محدد 
+  └─ To unban someone 
 +unbanall
-  └─ لفك الباند عن الجميع 
+  └─ To unban all the banned members in the server 
 +kick
-  └─ لتعطي شخص كيك مع السبب   
+  └─ To kick someone with the reason   
 +clear
-  └─ لمسح الشات   
+  └─ To clear the chat    
 +tc
-  └─ لانشاء روم صوتي وكتابي مؤقت
+  └─ To create temperate channel  
 +cc
-  └─ لانشاء كاتجوري 
+  └─ To create a categorie
 +cv
-  └─ لانشاء روم صوتي دائم 
+  └─ To create a voice channel 
 +ct
-  └─ لانشاء روم كتابي دائم  
+  └─ To create a text channel
 +delet
-  └─ يحذف الـروم سواء صوتي او كتابي
+  └─ To delete any channel
 +role 
-  └─ لأعطاء رتبة
+  └─ To give someone role
 +removerole
-  └─ أزالة رتبة
+  └─ To remove a role from someone
 +role all 
-  └─ لأعطاء جميع الي في سيرفر رتبة
+  └─ To give a role to everyone on the server 
 +role bots
-  └─ لأعطاء جميع البوتات رتبة
+  └─ To give a role to all the bots 
 +role humans
-  └─ لأعطاء جميع الناس معدى البوتات رتبة 
+  └─ To give a role to all human members   
 +voicekick
-  └─ لطرد شخص من روم صوتي
+  └─ To kick someone from voice channel 
 +move
-  └─ لسحب الشخص الى الروم صوتي الخاص بك
+  └─ To move someone to your call
 +move all
-  └─ لسحب جميع الاشخاص الموجودون بالرومات الصوتية أليك**
+  └─ To move everyone to your voice call **
   
  ══════════ஜ۩۞۩ஜ════════════  
  
- 
+ If you feel like asking anything join our server support 
+Link:
+https://discord.gg/JvJmkpV
+And To invite the bot to your server
+Link:
+https://discordapp.com/oauth2/authorize?client_id=510324190478598155&scope=bot
   `)
   .setFooter('Requested by '+message.author.username, message.author.avatarURL)
 
@@ -3065,14 +3073,14 @@ message.react("📬")
                    var embed = new Discord.RichEmbed()
                       .setColor("#000000")
                         .setDescription(`
-تم إرسآل لك رسآلة من السيرفر الخاص بك 
+Sent the message to dms
 ${msg.guild.name} 
-الرسآلة 
+**Msg** 
 ${args}
         `)
-        .setFooter(` بوآسطة ${msg.author.username}#${msg.author.discriminator}`)
+        .setFooter(` **by** ${msg.author.username}#${msg.author.discriminator}`)
        msg.guild.owner.send(embed);
-      msg.channel.send("**تم إرسآل الرسآلة إلى أونر السيرفر**")
+      msg.channel.send("** Sent the dm*")
      }
     }
   );
@@ -3081,12 +3089,12 @@ ${args}
                   if(!message.channel.guild) return;
         var prefix = "+";
         if(message.content.startsWith(prefix + 'bc')) {
-        if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+        if(!message.channel.guild) return message.channel.send('**This command for servers only  **').then(m => m.delete(5000));
+      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**Sorry you need to have** `ADMINISTRATOR`' );
         let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
         let copy = "Dragon";
         let request = `Requested By ${message.author.username}`;
-        if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
+        if (!args) return message.reply('**Ehat do u want to send**');message.channel.send(`** Are ypu Sure? \n Bc msg:** \` ${args}\``).then(msg => {
         msg.react('✅')
         .then(() => msg.react('❌'))
         .then(() =>msg.react('✅'))
@@ -3129,23 +3137,23 @@ ${args}
             let args = message.content.split(" ").slice(1);
          
             if(!args[0]) {
-              message.channel.send("قم بمنشنة الرتبة | !rolebc @everyone message")
+              message.channel.send("Ping the role  | !rolebc @everyone message")
                 return;
             }
             if(!args[1]) {
-              message.channel.send("قم بكتابة الرسالة | !rolebc @everyone message")
+              message.channel.send("Say the message   | !rolebc @everyone message")
                 return;
             }
          
               if(args[0] == "@everyone") {
-                message.channel.send(`لقد تم ارسال هذه الرسالة الى ${message.guild.memberCount} اعضاء`)
+                message.channel.send(`Sent the dm to ${message.guild.memberCount} Member`)
                 message.guild.members.forEach(m => {
                   m.send(
-                  "**" + "السيرفر :" + "\n" +
+                  "**" + "server :" + "\n" +
                   `${message.guild.name}` + "\n" +
-                  "المرسل :" + "\n" +
+                  "sender :" + "\n" +
                   `${message.author.tag}` + "\n" +
-                  "الرسالة :" + "\n" +
+                  "message :" + "\n" +
                   `${args[1]}` + "**"
                   )
                 })
@@ -3154,31 +3162,31 @@ ${args}
          
                   var role = message.mentions.roles.first();
                     if(!role) {
-                      message.reply("لا توجد رتبة بهذا الاسم")
+                      message.reply("There is no role with this name")
                         return;
                     }
                 message.guild.members.filter(m => m.roles.get(role.id)).forEach(n => {
                   n.send(
-                  "**" + "السيرفر :" + "\n" +
+                  "**" + "Server :" + "\n" +
                   `${message.guild.name}` + "\n" +
-                  "المرسل :" + "\n" +
+                  "Sender :" + "\n" +
                   `${message.author.tag}` + "\n" +
-                  "الرسالة :" + "\n" +
+                  "Message :" + "\n" +
                   `${args[1]}` + "**"
                   )
                 })
-                message.channel.send(`لقد تم ارسال هذه الرسالة الى ${message.guild.members.filter(m => m.roles.get(role.id)).size} عضو`)
+                message.channel.send(`Message has been sent to ${message.guild.members.filter(m => m.roles.get(role.id)).size} Memeber `)
             }
         });
     
      client.on('message',async message => {
     var prefix = "+";
     if(message.content.startsWith(prefix + "allbc")) {
-      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**Sorry ypu dont have ** `ADMINISTRATOR`' );
       let filter = m => m.author.id === message.author.id;
       let thisMessage;
       let thisFalse;
-      message.channel.send(':regional_indicator_b::regional_indicator_c:| **ارسل الرسالة الان**').then(msg => {
+      message.channel.send(':regional_indicator_b::regional_indicator_c:| **What do u want to send**').then(msg => {
   
       let awaitM = message.channel.awaitMessages(filter, {
         max: 1,
@@ -3188,24 +3196,24 @@ ${args}
       .then(collected => {
         collected.first().delete();
         thisMessage = collected.first().content;
-        msg.edit(':regional_indicator_b::regional_indicator_c:| **هل انت متأكد؟**');
-        let awaitY = message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
+        msg.edit(':regional_indicator_b::regional_indicator_c:| **Are ypu sure? (yes/no) **');
+        let awaitY = message.channel.awaitMessages(response => response.content === 'yes' || 'no' && filter,{
           max: 1,
           time: 20000,
           errors: ['time']
         })
         .then(collected => {
-          if(collected.first().content === 'لا') {
+          if(collected.first().content === 'no') {
             msg.delete();
             message.delete();
             thisFalse = false;
           }
-          if(collected.first().content === 'نعم') {
+          if(collected.first().content === 'yes') {
             if(thisFalse === false) return;
           message.guild.members.forEach(member => {
-            msg.edit(':regional_indicator_b::regional_indicator_c:| **جاري الارسال**');
+            msg.edit(':regional_indicator_b::regional_indicator_c:| **Sending the message **');
             collected.first().delete();
-            member.send(`${thisMessage}\n\n${member} ,\nتم الارسال من : ${message.guild.name}\n تم الارسال بواسطة : ${message.author.tag}`);
+            member.send(`${thisMessage}\n\n${member} ,\n**Sent from** : ${message.guild.name}\n **sent by** : ${message.author.tag}`);
           });
           }
         });
@@ -3223,7 +3231,7 @@ ${args}
               message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
              m.send(`${argresult}\n ${m}`);
             })
-             message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+             message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : Reserved members   `); 
              message.delete(); 
             };     
             });
@@ -3335,7 +3343,7 @@ client.on('message', async msg => { // eslint-disable-line
 					let index = 0;
 
 					const embed1 = new Discord.RichEmbed()
-			        .setDescription(`**اختار رقم المقطع** :
+			        .setDescription(`**pick a number   ** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 					.setFooter("")
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
@@ -3612,25 +3620,29 @@ client.on("message", message => {
 
       
 ══════════ஜ۩۞۩ஜ════════════  
- **      اوامر الاغاني   
+ **      Music Commands 
 
-+play 
-  └─ لتشغيل اغنية عبر الأسم او رابط
-+stop 
-  └─ لأيقاف الأغنيه
++play   
+KingX
++stop
+KingX 
 +skip 
-  └─ لتخطي الأغنية
+KingX 
 +queue 
-  └─ لمعرفة الأغنية الأغنية الذي تم تشغيلها
+KingX 
 +vol
-  └─ لتغيير درجة صوت
+KingX 
 +pause
-  └─ لأيقاف الأغنية مؤقتاّ
+KingX
 +resume
-  └─ لأستمرار الأغنية**
-
+KingX**
 ══════════ஜ۩۞۩ஜ════════════ 
-
+If you feel like asking anything join our server support 
+Link:
+https://discord.gg/JvJmkpV
+And To invite the bot to your server
+Link:
+https://discordapp.com/oauth2/authorize?client_id=510324190478598155&scope=bot
 
  `)
  .setFooter('Requested by '+message.author.username, message.author.avatarURL)
